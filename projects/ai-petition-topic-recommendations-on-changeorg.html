@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Petition Topic Recommendations on change.org — Jess Klein</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<a class="back" href="../index.html">&larr; Jess Klein</a>
+<h1>AI Petition Topic Recommendations on change.org</h1>
+<p class="meta">Experimentation</p>
+<p><img alt="Събиране_на_подписи_март-юни_2018.jpg" src="../assets/ai-petition-topic-recommendations-on-changeorg/05d6af94-7e8b-49c0-ac71-483df34a6b3c.png" /></p>
+<p>Image Source: <a href="https://commons.wikimedia.org/wiki/File:%D0%A1%D1%8A%D0%B1%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D0%BD%D0%B0_%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%B8_%D0%BC%D0%B0%D1%80%D1%82-%D1%8E%D0%BD%D0%B8_2018.jpg">Wikimedia Commons</a></p>
+<aside>
+💡
+
+Many petition supporters want to do more than sign their name, but they often lack the confidence or know-how to start their own petition. How might we empower signers to create petitions in the moments after signing?
+
+</aside>
+
+<h2>Explore</h2>
+<hr />
+<h2>Opportunity</h2>
+<p><img alt="CleanShot 2025-12-06 at 10.38.06.png" src="../assets/ai-petition-topic-recommendations-on-changeorg/cleanshot_2025-12-06_at_10.38.06.png" /></p>
+<p>In general, there are many more people who come to <a href="http://Change.org">Change.org</a> to sign a petition compared to the number that create one. Change.org focused on creators, but signers were the real untapped audience.</p>
+<h2>Role and Team</h2>
+<p><img alt="Our core triad was me as the lead designer, partnered closely with our lead engineer and product manager. We made decisions together, but worked in tight collaboration with community consultants and the executive team who shaped priorities and validated direction." src="../assets/ai-petition-topic-recommendations-on-changeorg/cleanshot_2025-12-06_at_16.23.05.png" /></p>
+<p>Our core triad was me as the lead designer, partnered closely with our lead engineer and product manager. We made decisions together, but worked in tight collaboration with community consultants and the executive team who shaped priorities and validated direction.</p>
+<h2>Define</h2>
+<hr />
+<h2>User Stories</h2>
+<p><img alt="CleanShot 2025-12-06 at 10.36.26.png" src="../assets/ai-petition-topic-recommendations-on-changeorg/cleanshot_2025-12-06_at_10.36.26.png" /></p>
+<p>Through mixed-methods research with starters, signers, and decision makers, I learned that many signers are willing to start a follow-on petition but hesitate due to confidence gaps, and that decision makers are more likely to act when they hear about an issue repeatedly.</p>
+<aside>
+💡
+
+> *I want to do more than just add my name to a petition but honestly, I’m not sure I’d know the right way to help.*
+> 
+</aside>
+
+<aside>
+💡
+
+> *I’m not sure I’m the right person to make the petition.*
+> 
+</aside>
+
+<ul>
+<li><strong>Research Methods used throughout the project</strong><ul>
+<li>analytics dashboard</li>
+<li>segmentation</li>
+<li>co-design workshops</li>
+<li>unmoderated usability testing</li>
+<li>prompt validation</li>
+</ul>
+</li>
+</ul>
+<h2>Brainstorming</h2>
+<p><img alt="🧠⚡️ Brainstorm: what actions can supporters take after they are done signing?" src="../assets/ai-petition-topic-recommendations-on-changeorg/cleanshot_2025-12-07_at_12.11.13.png" /></p>
+<p>🧠⚡️ Brainstorm: what actions can supporters take after they are done signing?</p>
+<h2>Hypothesis</h2>
+<p>Offering petition signers smart, relevant and data-driven petition topic recommendations, will motivate them to create their own petitions because they will have confidence that it will be successful.</p>
+<pre><code> intervention       action       logic
+</code></pre>
+<h2>Make</h2>
+<hr />
+<h2>Lo-Fi Design and Prompt Engineering</h2>
+<pre><code>JOB TO BE DONE:
+
+**When I**'ve just signed a petition on an issue I care about
+**I want to** be prompted with recommended related topics and helped to draft a petition
+**So I can** escalate my involvement instead of stopping at a signature
+</code></pre>
+<p>The product triad wrote <a href="https://jobs-to-be-done.com/the-history-of-jobs-to-be-done-and-outcome-driven-innovation-a2fdfd0c7a9a">jobs to be done</a> for every stage in the user journey and identified areas where we could track the drop off rate to determine if this was a successful intervention. </p>
+<p><img alt="Lo-Fi.png" src="../assets/ai-petition-topic-recommendations-on-changeorg/lo-fi.png" /></p>
+<h2>Designing the Recommendations</h2>
+<p><img alt="2EB9E48CEBC273580887938269668AB622454F53.jpeg" src="../assets/ai-petition-topic-recommendations-on-changeorg/19e09a98-271d-4647-8211-7db1131284aa.png" /></p>
+<p>In addition to talking to career organizers, <a href="https://nypl.overdrive.com/media/5546095">Mutual Aid</a> provided me with a ton of practical organizing tips.</p>
+<hr />
+<p><strong>Three ways to spin a petition topic into a fresh petition:</strong></p>
+<p><strong>Scale:</strong> Suggest localizing a national or global petition to increase its chances of success.</p>
+<ul>
+<li>
+<p>Here’s an example from the prompt</p>
+<p>```
+<strong>Suggest localizing a national or global petition to increase its chances of success</strong>.</p>
+<p>Example:
+From “Protect Amazon rainforest globally,” move to “Ban deforestation-linked products in [city].”
+```</p>
+</li>
+</ul>
+<p><strong>Target:</strong> Target a different person or entity that could pressure the original decision maker. </p>
+<ul>
+<li>
+<p>Here’s an example from the prompt</p>
+<p>```
+<strong>Target a different person or entity that could pressure the original decision maker.</strong> </p>
+<p>Example:
+From signing “Statewide ban on plastic straws,” suggest “Urge Starbucks to eliminate plastic straws nationally.”</p>
+<p>```</p>
+</li>
+</ul>
+<p><strong>Ask:</strong> Change ask to be more concrete or reduce scope</p>
+<ul>
+<li>
+<p>Here’s an example from the prompt</p>
+<p>```
+<strong>Change ask to be more concrete or reduce scope</strong></p>
+<p>Aim to achieve the same overall goal as the original petition, but make the ask more specific, more actionable, or more winnable by reducing scope.</p>
+<p>Example:
+From “Protect students from gun violence” To: “Ban guns in K-12 school zones nationwide”
+```</p>
+</li>
+</ul>
+<h2>High Fidelity Design</h2>
+<p><img alt="CleanShot 2025-12-07 at 12.02.25.png" src="../assets/ai-petition-topic-recommendations-on-changeorg/cleanshot_2025-12-07_at_12.02.25.png" /></p>
+<p>I needed to design a new component card for the recommendations. I made lots of iterations until we got to the final design.</p>
+<h2>Validate</h2>
+<hr />
+<p>I simultaneously tested the:</p>
+<ul>
+<li>user flow on <a href="http://usertesting.com">usertesting.com</a> with lo-fi mockups</li>
+<li>prompt internally with the <a href="https://change-app-next-js.vercel.app/supporter-to-starter">vercel prototype.</a></li>
+</ul>
+<h2>Final Solution</h2>
+<p><img alt="7.png" src="../assets/ai-petition-topic-recommendations-on-changeorg/7.png" /></p>
+<p><img alt="8.png" src="../assets/ai-petition-topic-recommendations-on-changeorg/8.png" /></p>
+<video src="../assets/ai-petition-topic-recommendations-on-changeorg/airecommendations.mov" controls playsinline></video>
+
+<p>←Here’s a little walkthrough to see what it felt like. (I also had a little fun playing around with video editing here.)</p>
+<h2>Impact</h2>
+<p>77% of supporters opted in to petition creation after the initial ask.</p>
+<p><strong>This made it significantly more simple for supporters to write petitions</strong>.</p>
+<h2>Next Steps</h2>
+<p>There’s a big opportunity to increase the quality of the petitions being created. The next iteration will focus on user education and support to increase not just the rate of petitions being created, but the winnability and impact of them.</p>
+</main>
+</body>
+</html>
