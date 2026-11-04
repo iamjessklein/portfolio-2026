@@ -1,147 +1,49 @@
-/* jessicaklein.com — 1970s Jewish folk art: teal / orange / navy,
-   geometric ornament, postage-stamp grid, zigzag borders. */
-
 :root {
-  --navy: #14284b;
-  --teal: #0f7c80;
-  --teal-soft: #d6ebe9;
-  --orange: #e8742a;
-  --orange-soft: #fbe3d0;
-  --cream: #fbf5e8;
-  --ink: var(--navy);
-  --muted: #55627a;
+  --ink: #1e1e1c;
+  --muted: #6f6e6a;
+  --rule: #e6e4de;
+  --learning: #fce9dd;
+  --community: #dff0e6;
+  --experimentation: #dfeaf7;
   --measure: 46rem;
-  --wide: 62rem;
-  --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  --sans: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-
 * { box-sizing: border-box; }
-
 body {
   margin: 0;
-  padding: 0 1.5rem 5rem;
-  font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.7;
+  padding: 4rem 1.5rem 6rem;
+  font-family: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
+  font-size: 15px;
+  line-height: 1.75;
   color: var(--ink);
-  background: var(--cream);
+  background: #fff;
 }
-
-/* zigzag band across the top of every page */
-body::before {
-  content: "";
-  display: block;
-  height: 18px;
-  margin: 0 -1.5rem 3.5rem;
-  background:
-    linear-gradient(135deg, var(--teal) 25%, transparent 25%) -9px 0 / 18px 18px,
-    linear-gradient(225deg, var(--teal) 25%, transparent 25%) -9px 0 / 18px 18px,
-    var(--navy);
-}
-
 main { max-width: var(--measure); margin: 0 auto; }
-main:has(.stamps) { max-width: var(--wide); }
-
-h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; }
-h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); letter-spacing: -0.02em; margin: 0 0 1rem; }
-h2 { font-size: 1.6rem; margin: 3rem 0 0.75rem; color: var(--teal); }
-h3 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+h1 { font-size: 2.25rem; letter-spacing: -0.02em; margin: 0 0 1.25rem; }
+h2 { font-size: 1.25rem; margin: 2.5rem 0 0.75rem; }
+h3 { font-size: 1rem; margin: 2rem 0 0.5rem; }
 p, li { max-width: 40rem; }
-a { color: var(--teal); text-underline-offset: 3px; text-decoration-thickness: 2px; }
-a:hover { color: var(--orange); }
-
-mark { background: var(--orange-soft); color: inherit; padding: 0 0.2em; border-radius: 2px; }
-mark.community { background: var(--teal-soft); }
-mark.experimentation { background: #dde3f1; }
-
-.tagline { font-family: var(--serif); font-size: 1.45rem; line-height: 1.4; margin: 0 0 3rem; max-width: 34rem; }
-
-/* tabs */
-.tabs { display: flex; gap: 0.6rem; margin-bottom: 1.75rem; }
+a { color: inherit; text-underline-offset: 3px; }
+mark { background: var(--learning); color: inherit; padding: 0 0.15em; }
+mark.community { background: var(--community); }
+mark.experimentation { background: var(--experimentation); }
+.tagline { margin: 0 0 3rem; }
+.tabs { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; }
 .tab {
-  font: 600 0.9rem/1 var(--sans); letter-spacing: 0.04em; text-transform: uppercase;
-  cursor: pointer; border: 2px solid var(--navy); border-radius: 0;
-  padding: 0.6rem 1rem; background: transparent; color: var(--navy);
+  font: inherit; cursor: pointer; border: 0; border-radius: 999px;
+  padding: 0.35rem 0.9rem; background: transparent; color: var(--muted);
 }
-.tab[aria-selected="true"] { background: var(--navy); color: var(--cream); }
-.tab:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
-
-/* postage-stamp grid */
-ul.projects, ul.stamps {
-  list-style: none; padding: 0; margin: 0 0 2rem;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 1.5rem;
-}
-ul.projects li { margin: 0; max-width: none; }
-ul.projects li[hidden] { display: none; }
-ul.projects a {
-  position: relative; display: flex; align-items: flex-end;
-  min-height: 11rem; padding: 1.1rem 1rem; text-decoration: none;
-  font-family: var(--serif); font-weight: 700; font-size: 1.05rem; line-height: 1.25;
-  color: var(--cream); --bg: var(--navy); --p: 6px;
-  background:
-    radial-gradient(circle var(--p) at 50% 0, var(--cream) 96%, transparent) 0 0 / 20px 50% repeat-x,
-    radial-gradient(circle var(--p) at 50% 100%, var(--cream) 96%, transparent) 0 100% / 20px 50% repeat-x,
-    radial-gradient(circle var(--p) at 0 50%, var(--cream) 96%, transparent) 0 0 / 50% 20px repeat-y,
-    radial-gradient(circle var(--p) at 100% 50%, var(--cream) 96%, transparent) 100% 0 / 50% 20px repeat-y,
-    var(--bg);
-  transition: transform 0.15s ease;
-}
-/* geometric ornament on each stamp, rotating through the palette */
-ul.projects a::before {
-  content: ""; position: absolute; top: 1rem; right: 1rem; width: 2.6rem; height: 2.6rem;
-  background: var(--orange);
-  clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-}
-ul.projects li:nth-child(3n+2) a { --bg: var(--teal); }
-ul.projects li:nth-child(3n+2) a::before { background: var(--cream); clip-path: circle(50%); }
-ul.projects li:nth-child(3n+3) a { --bg: var(--orange); color: var(--navy); }
-ul.projects li:nth-child(3n+3) a::before { background: var(--navy); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
-ul.projects a:hover, ul.projects a:focus-visible { transform: translateY(-4px) rotate(-1deg); }
-ul.projects a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
-
-.legend { color: var(--muted); font-size: 0.9rem; margin: 0 0 2.5rem; }
-
-/* zigzag divider */
-hr {
-  border: 0; height: 18px; margin: 3.5rem 0;
-  background:
-    linear-gradient(135deg, var(--orange) 25%, transparent 25%) -9px 0 / 18px 18px,
-    linear-gradient(225deg, var(--orange) 25%, transparent 25%) -9px 0 / 18px 18px;
-}
-
-details summary { cursor: pointer; font-family: var(--serif); font-weight: 700; font-size: 1.6rem; color: var(--teal); }
+.tab[aria-selected="true"] { background: #f1efe9; color: var(--ink); }
+.tab:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+ul.projects { list-style: none; padding: 0; margin: 0 0 2rem; }
+ul.projects li { margin: 0.35rem 0; }
+ul.projects a { text-decoration: none; }
+ul.projects a:hover { text-decoration: underline; }
+.legend { color: var(--muted); margin: 0 0 2.5rem; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0; }
+details summary { cursor: pointer; font-weight: 500; }
 details[open] summary { margin-bottom: 1rem; }
-
-img, video { max-width: 100%; height: auto; display: block; margin: 1.75rem 0; border: 3px solid var(--navy); background: #fff; }
-
-/* callouts exported from Notion */
-aside {
-  margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--teal-soft);
-  border-left: 8px solid var(--teal); font-family: var(--serif); font-size: 1.15rem; line-height: 1.5;
-}
-
-blockquote { margin: 1.5rem 0; padding-left: 1.25rem; border-left: 4px solid var(--orange); font-family: var(--serif); font-style: italic; }
-table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
-th, td { border: 2px solid var(--navy); padding: 0.5rem 0.75rem; text-align: left; }
-
-/* project pages */
-.back {
-  display: inline-block; margin-bottom: 2.5rem; color: var(--navy); text-decoration: none;
-  font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.85rem;
-}
-.back:hover { color: var(--orange); }
-.meta {
-  display: inline-block; margin: 0 0 2.5rem; padding: 0.2rem 0.7rem; background: var(--orange); color: var(--navy);
-  font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
-}
-
-footer { max-width: var(--measure); margin: 4rem auto 0; color: var(--muted); font-size: 0.9rem; }
-
-@media (max-width: 40rem) {
-  body { font-size: 16px; padding: 0 1.25rem 4rem; }
-  body::before { margin: 0 -1.25rem 2.5rem; }
-  ul.projects { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  ul.projects a { min-height: 9rem; font-size: 0.95rem; }
-}
-@media (prefers-reduced-motion: reduce) { ul.projects a { transition: none; } ul.projects a:hover { transform: none; } }
+img, video { max-width: 100%; height: auto; display: block; margin: 1.5rem 0; }
+.back { display: inline-block; margin-bottom: 2.5rem; color: var(--muted); text-decoration: none; }
+.back:hover { text-decoration: underline; }
+.meta { color: var(--muted); margin: 0 0 2.5rem; }
+@media (max-width: 40rem) { body { padding: 2.5rem 1.25rem 4rem; } h1 { font-size: 1.75rem; } }
