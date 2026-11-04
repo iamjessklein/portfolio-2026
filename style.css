@@ -12,6 +12,7 @@
   --measure: 40rem;
   --wide: 64rem;
   --display: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   --text: "Newsreader", "Iowan Old Style", Georgia, serif;
   --squiggle: url("data:image/svg+xml;utf8,<svg viewBox='0 0 20 5' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><path d='M0 2.5 Q2.5 0 5 2.5 T10 2.5 T15 2.5 T20 2.5' fill='none' stroke='%2317140f' stroke-width='1.1' stroke-linecap='round'/></svg>");
 }
@@ -45,13 +46,15 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 
 /* ---------- top bar ---------- */
 .top {
-  max-width: var(--wide); margin: 0 auto 4rem;
+  max-width: var(--wide); margin: 0 auto 5rem;
   display: flex; justify-content: space-between; align-items: baseline;
-  font-family: var(--display); font-size: 0.95rem;
+  font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.02em;
+  padding-bottom: 1rem; border-bottom: 1px solid var(--rule);
 }
-.top a { background-image: none; font-weight: 500; }
+.top a { background-image: none; font-weight: 400; }
 .top a:hover { background-color: var(--hl); }
-.top nav { display: flex; gap: 1.5rem; }
+.top .wordmark { font-weight: 500; }
+.top nav { display: flex; gap: 2rem; }
 
 /* ---------- hero ---------- */
 .hero { margin: 0 0 5rem; }
@@ -124,7 +127,7 @@ th, td { border-top: 1px solid var(--rule); padding: 0.6rem 0.5rem 0.6rem 0; tex
 /* ---------- project pages ---------- */
 body:not(.home) { padding-top: 1.5rem; }
 .back {
-  display: inline-block; margin-bottom: 3rem; font-family: var(--display); font-size: 0.95rem;
+  display: inline-block; margin-bottom: 3rem; font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.02em; font-weight: 400;
   background-image: none;
 }
 .back:hover { background-color: var(--hl); }
