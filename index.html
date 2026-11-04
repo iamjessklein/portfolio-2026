@@ -29,20 +29,35 @@
     <button class="tab" role="tab" data-view="all" aria-selected="false">All projects</button>
   </div>
 
-  <ul class="projects">
-    <li data-featured="false" hidden><a href="projects/hack-firefox.html">Hack Firefox</a><span class="org">Mozilla</span></li>
-    <li data-featured="true"><a href="projects/open-badges-with-mozilla.html">Open Badges with Mozilla</a><span class="org">Mozilla</span></li>
-    <li data-featured="true"><a href="projects/hive-learning-network-with-mozilla.html">Hive Learning Network with Mozilla</a><span class="org">Mozilla</span></li>
-    <li data-featured="false" hidden><a href="projects/hackasaurus-code-tinkering-to-mastery.html">Hackasaurus - code tinkering to mastery</a><span class="org">Mozilla</span></li>
-    <li data-featured="false" hidden><a href="projects/open-design-kit.html">Open Design Kit</a><span class="org"></span></li>
-    <li data-featured="false" hidden><a href="projects/rockaway-hack-jams-after-hurricane-sandy.html">Rockaway Hack Jams After Hurricane Sandy</a><span class="org">Personal</span></li>
-    <li data-featured="true"><a href="projects/ai-petition-topic-recommendations-on-changeorg.html">AI Petition Topic Recommendations on change.org</a><span class="org">Change.org</span></li>
-    <li data-featured="true"><a href="projects/mobile-editing-on-wikipedia.html">Mobile editing on Wikipedia</a><span class="org">Wikimedia</span></li>
-    <li data-featured="false" hidden><a href="projects/birds-ive-seen-in-nyc.html">Birds I’ve Seen in NYC</a><span class="org">Personal</span></li>
-    <li data-featured="false" hidden><a href="projects/design-lessons-from-a-year-in-quarantine.html">Design Lessons from A Year In Quarantine</a><span class="org">Personal</span></li>
-    <li data-featured="false" hidden><a href="projects/positive-reinforcement-club.html">Positive Reinforcement Club</a><span class="org">Personal</span></li>
-    <li data-featured="false" hidden><a href="projects/mozilla-webmaker.html">Mozilla Webmaker</a><span class="org">Mozilla</span></li>
-  </ul>
+  <div class="value">
+    <h2 class="value-title"><mark>learning</mark></h2>
+    <ul class="projects">
+      <li data-featured="false" hidden><a href="projects/hack-firefox.html">Hack Firefox</a></li>
+      <li data-featured="false" hidden><a href="projects/hackasaurus-code-tinkering-to-mastery.html">Hackasaurus - code tinkering to mastery</a></li>
+      <li data-featured="false" hidden><a href="projects/birds-ive-seen-in-nyc.html">Birds I’ve Seen in NYC</a></li>
+      <li data-featured="false" hidden><a href="projects/design-lessons-from-a-year-in-quarantine.html">Design Lessons from A Year In Quarantine</a></li>
+      <li data-featured="false" hidden><a href="projects/mozilla-webmaker.html">Mozilla Webmaker</a></li>
+    </ul>
+  </div>
+
+  <div class="value">
+    <h2 class="value-title"><mark class="community">community</mark></h2>
+    <ul class="projects">
+      <li data-featured="true"><a href="projects/hive-learning-network-with-mozilla.html">Hive Learning Network with Mozilla</a></li>
+      <li data-featured="false" hidden><a href="projects/rockaway-hack-jams-after-hurricane-sandy.html">Rockaway Hack Jams After Hurricane Sandy</a></li>
+      <li data-featured="true"><a href="projects/mobile-editing-on-wikipedia.html">Mobile editing on Wikipedia</a></li>
+      <li data-featured="false" hidden><a href="projects/open-design-kit.html">Open Design Kit</a></li>
+    </ul>
+  </div>
+
+  <div class="value">
+    <h2 class="value-title"><mark class="experimentation">experimentation</mark></h2>
+    <ul class="projects">
+      <li data-featured="true"><a href="projects/open-badges-with-mozilla.html">Open Badges with Mozilla</a></li>
+      <li data-featured="true"><a href="projects/ai-petition-topic-recommendations-on-changeorg.html">AI Petition Topic Recommendations on change.org</a></li>
+      <li data-featured="false" hidden><a href="projects/positive-reinforcement-club.html">Positive Reinforcement Club</a></li>
+    </ul>
+  </div>
 </section>
 
 <section id="about" class="about">
@@ -56,13 +71,14 @@
 <script>
 const tabs = document.querySelectorAll('.tab');
 const items = document.querySelectorAll('ul.projects li');
+const groups = document.querySelectorAll('.value');
 tabs.forEach(t => t.addEventListener('click', () => {
   tabs.forEach(o => o.setAttribute('aria-selected', String(o === t)));
   const showAll = t.dataset.view === 'all';
-  items.forEach(li => {
-    li.hidden = !showAll && li.dataset.featured !== 'true';
-  });
+  items.forEach(li => { li.hidden = !showAll && li.dataset.featured !== 'true'; });
+  groups.forEach(g => { g.hidden = !g.querySelector('li:not([hidden])'); });
 }));
+groups.forEach(g => { g.hidden = !g.querySelector('li:not([hidden])'); });
 </script>
 </main>
 </body>
