@@ -1,49 +1,140 @@
+/* jessicaklein.com — minimal, text-led, with images tucked into the type.
+   Links: no underline at rest-weight, hand-drawn squiggle that animates on hover. */
+
 :root {
-  --ink: #1e1e1c;
-  --muted: #6f6e6a;
-  --rule: #e6e4de;
-  --learning: #fce9dd;
-  --community: #dff0e6;
-  --experimentation: #dfeaf7;
-  --measure: 46rem;
+  --ink: #17140f;
+  --muted: #6b665c;
+  --paper: #f8f5ee;
+  --rule: #17140f;
+  --learning: #fbe0d0;
+  --community: #d9ece3;
+  --experimentation: #dce5f5;
+  --measure: 40rem;
+  --wide: 64rem;
+  --display: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --text: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --squiggle: url("data:image/svg+xml;utf8,<svg viewBox='0 0 20 5' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><path d='M0 2.5 Q2.5 0 5 2.5 T10 2.5 T15 2.5 T20 2.5' fill='none' stroke='%2317140f' stroke-width='1.1' stroke-linecap='round'/></svg>");
 }
+
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
-  padding: 4rem 1.5rem 6rem;
-  font-family: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
-  font-size: 15px;
-  line-height: 1.75;
+  padding: 1.5rem 1.5rem 6rem;
+  font-family: var(--text);
+  font-size: 1.25rem;
+  line-height: 1.55;
   color: var(--ink);
-  background: #fff;
+  background: var(--paper);
 }
+
 main { max-width: var(--measure); margin: 0 auto; }
-h1 { font-size: 2.25rem; letter-spacing: -0.02em; margin: 0 0 1.25rem; }
-h2 { font-size: 1.25rem; margin: 2.5rem 0 0.75rem; }
-h3 { font-size: 1rem; margin: 2rem 0 0.5rem; }
-p, li { max-width: 40rem; }
-a { color: inherit; text-underline-offset: 3px; }
-mark { background: var(--learning); color: inherit; padding: 0 0.15em; }
-mark.community { background: var(--community); }
-mark.experimentation { background: var(--experimentation); }
-.tagline { margin: 0 0 3rem; }
-.tabs { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; }
-.tab {
-  font: inherit; cursor: pointer; border: 0; border-radius: 999px;
-  padding: 0.35rem 0.9rem; background: transparent; color: var(--muted);
+body.home main { max-width: var(--wide); }
+
+/* ---------- links ---------- */
+a {
+  color: inherit; font-weight: 500; text-decoration: none;
+  background-image: var(--squiggle); background-repeat: repeat-x;
+  background-size: 20px 5px; background-position: 0 100%;
+  padding-bottom: 4px;
+  transition: background-size 0.2s ease, color 0.2s ease;
 }
-.tab[aria-selected="true"] { background: #f1efe9; color: var(--ink); }
-.tab:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-ul.projects { list-style: none; padding: 0; margin: 0 0 2rem; }
-ul.projects li { margin: 0.35rem 0; }
-ul.projects a { text-decoration: none; }
-ul.projects a:hover { text-decoration: underline; }
-.legend { color: var(--muted); margin: 0 0 2.5rem; }
-hr { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0; }
-details summary { cursor: pointer; font-weight: 500; }
-details[open] summary { margin-bottom: 1rem; }
-img, video { max-width: 100%; height: auto; display: block; margin: 1.5rem 0; }
-.back { display: inline-block; margin-bottom: 2.5rem; color: var(--muted); text-decoration: none; }
-.back:hover { text-decoration: underline; }
-.meta { color: var(--muted); margin: 0 0 2.5rem; }
-@media (max-width: 40rem) { body { padding: 2.5rem 1.25rem 4rem; } h1 { font-size: 1.75rem; } }
+a:hover, a:focus-visible { background-size: 20px 7px; animation: wiggle 0.6s linear infinite; }
+@keyframes wiggle { to { background-position: 20px 100%; } }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- top bar ---------- */
+.top {
+  max-width: var(--wide); margin: 0 auto 4rem;
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--display); font-size: 0.95rem;
+}
+.top a { background: none; padding: 0; font-weight: 500; animation: none; }
+.top a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.top nav { display: flex; gap: 1.5rem; }
+
+/* ---------- hero ---------- */
+.hero { margin: 0 0 5rem; }
+.hero h1 {
+  font-family: var(--display); font-weight: 700; letter-spacing: -0.035em;
+  font-size: clamp(2.6rem, 7.5vw, 5.5rem); line-height: 1.12; margin: 0 0 2rem; max-width: 14em;
+}
+/* highlight only the lower part of the word so lines never collide */
+mark { --hl: var(--learning); background: linear-gradient(transparent 52%, var(--hl) 52%, var(--hl) 92%, transparent 92%); color: inherit; padding: 0 0.05em; }
+mark.community { --hl: var(--community); }
+mark.experimentation { --hl: var(--experimentation); }
+
+/* small images tucked into the headline */
+.sticker {
+  display: inline-block; width: 0.95em; height: 0.95em; object-fit: cover;
+  border-radius: 50%; vertical-align: -0.08em; margin: 0 0.1em 0 0;
+  border: 0; background: #fff;
+}
+.nb { white-space: nowrap; }
+.sticker.s1 { transform: rotate(-8deg); }
+.sticker.s2 { transform: rotate(6deg); object-position: 50% 30%; }
+.sticker.s3 { transform: rotate(-4deg); }
+.intro { font-family: var(--display); font-size: 1.1rem; color: var(--muted); margin: 0; }
+
+/* ---------- project list ---------- */
+.tabs { display: flex; gap: 1.5rem; margin-bottom: 1rem; font-family: var(--display); }
+.tab {
+  font: 500 1rem/1 var(--display); cursor: pointer; border: 0; background: none; padding: 0.25rem 0;
+  color: var(--muted); border-bottom: 2px solid transparent;
+}
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.tab:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+ul.projects { list-style: none; padding: 0; margin: 0 0 6rem; border-bottom: 1px solid var(--rule); }
+ul.projects li {
+  position: relative; display: grid; grid-template-columns: 1fr 14rem; gap: 1.5rem; align-items: baseline;
+  padding: 1.1rem 0; margin: 0; max-width: none; border-top: 1px solid var(--rule);
+  font-family: var(--display); font-size: 1.15rem; line-height: 1.3;
+}
+ul.projects li[hidden] { display: none; }
+ul.projects li a { background-image: none; padding: 0; font-weight: 500; animation: none; }
+ul.projects li a::after { content: ""; position: absolute; inset: 0; }   /* whole row clickable */
+ul.projects li:hover { background: #efe9dc; }
+ul.projects li:hover a { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 5px; }
+.org { color: var(--muted); font-size: 1rem; }
+
+/* ---------- about ---------- */
+.about { max-width: var(--measure); }
+.about h2 { font-family: var(--display); font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 1rem; }
+.logos img { background: #fff; border-radius: 12px; padding: 1rem; }
+
+/* ---------- shared content ---------- */
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); margin: 0 0 1rem; }
+h2 { font-size: 1.7rem; margin: 3.5rem 0 0.75rem; }
+h3 { font-size: 1.2rem; margin: 2rem 0 0.5rem; }
+p, li { max-width: 40rem; }
+s { text-decoration-thickness: 2px; }
+img, video { max-width: 100%; height: auto; display: block; margin: 1.75rem 0; border-radius: 10px; }
+.sticker { margin: 0 0.04em 0 0.1em; }
+aside {
+  margin: 2rem 0; padding: 1.25rem 1.5rem; background: #efe9dc; border-radius: 10px;
+  font-size: 1.25rem; line-height: 1.5;
+}
+blockquote { margin: 1.5rem 0; padding-left: 1.25rem; border-left: 3px solid var(--ink); font-style: italic; }
+table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; font-family: var(--display); font-size: 1rem; }
+th, td { border-top: 1px solid var(--rule); padding: 0.6rem 0.5rem 0.6rem 0; text-align: left; vertical-align: top; }
+
+/* ---------- project pages ---------- */
+body:not(.home) { padding-top: 1.5rem; }
+.back {
+  display: inline-block; margin-bottom: 3rem; font-family: var(--display); font-size: 0.95rem;
+  background: none; padding: 0; animation: none;
+}
+.back:hover { text-decoration: underline; text-underline-offset: 4px; }
+.meta {
+  display: inline-block; margin: 0 0 2.5rem; padding: 0.2rem 0.75rem; border-radius: 999px;
+  background: var(--learning); font-family: var(--display); font-size: 0.85rem; font-weight: 500;
+}
+
+@media (max-width: 40rem) {
+  body { font-size: 1.1rem; padding: 1.25rem 1.25rem 4rem; }
+  .top { margin-bottom: 2.5rem; }
+  ul.projects li { grid-template-columns: 1fr; gap: 0.15rem; }
+}
+@media (prefers-reduced-motion: reduce) { a:hover, a:focus-visible { animation: none; } }
