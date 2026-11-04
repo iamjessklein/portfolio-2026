@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jess Klein</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
-<h1>Jess Klein</h1>
-<p class="tagline">My design fosters <mark>learning</mark>, <mark class="community">community</mark>, and <mark class="experimentation">experimentation</mark>.</p>
+<h1 class="tagline">My name is Jess Klein and my design fosters <mark>learning</mark>, <mark class="community">community</mark>, and <mark class="experimentation">experimentation</mark>.</h1>
 
 <div class="tabs" role="tablist">
   <button class="tab" role="tab" data-view="featured" aria-selected="true">Featured</button>
@@ -31,11 +31,11 @@
   <li data-featured="false" hidden><a href="projects/mozilla-webmaker.html">Mozilla Webmaker</a></li>
 </ul>
 
-<p class="legend">* = personal project</p>
+<p class="legend" hidden>* = personal project</p>
 
 <hr>
 
-<details open>
+<details>
   <summary>About me.</summary>
 <p>My approach to design is shaped by my past design roles. In the past two decades I’ve worked at educational non-profits, creative studios and product teams.  </p>
 <p><img alt="Screenshot 2025-12-01 at 11.30.00 AM.png" src="assets/screenshot_2025-12-01_at_11.30.00_am.png" /></p>
@@ -46,9 +46,11 @@
 <script>
 const tabs = document.querySelectorAll('.tab');
 const items = document.querySelectorAll('ul.projects li');
+const legend = document.querySelector('.legend');
 tabs.forEach(t => t.addEventListener('click', () => {
   tabs.forEach(o => o.setAttribute('aria-selected', String(o === t)));
   const showAll = t.dataset.view === 'all';
+  legend.hidden = !showAll;
   items.forEach(li => {
     li.hidden = !showAll && li.dataset.featured !== 'true';
   });
