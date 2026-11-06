@@ -32,7 +32,7 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.0
 .nav .home{background-image:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-8px 0 -8px -6px}
 .nav nav{display:flex;gap:8px 24px}
 .hero{margin-top:88px;max-width:720px}
-.hero h1{margin:0;font-size:clamp(32px,4.6vw,52px);line-height:1.05;max-width:22em}
+.hero h1{margin:0;font-family:"Yomogi",cursive;font-weight:400;font-size:clamp(32px,4.6vw,52px);line-height:1.05;max-width:22em}
 .lede{margin:18px 0 0;font-size:19px;line-height:1.7;color:var(--muted)}
 .filters{margin-top:56px;display:flex;flex-direction:column;gap:8px;font-family:'Lato',sans-serif;font-size:13px;color:var(--muted)}
 .frow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
