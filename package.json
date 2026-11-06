@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "eleventy --serve",
+    "sync:medium": "node scripts/sync-medium.mjs",
     "build": "eleventy"
   },
   "devDependencies": {
