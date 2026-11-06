@@ -34,10 +34,12 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.0
 .hero{margin-top:88px;max-width:720px}
 .hero h1{margin:0;font-size:clamp(32px,4.6vw,52px);line-height:1.05;max-width:22em}
 .lede{margin:18px 0 0;font-size:19px;line-height:1.7;color:var(--muted)}
-.filters{margin-top:56px;display:flex;flex-direction:column;gap:12px;font-family:'Lato',sans-serif;font-size:13px;color:var(--muted)}
-.frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.filters{margin-top:56px;display:flex;flex-direction:column;gap:8px;font-family:'Lato',sans-serif;font-size:13px;color:var(--muted)}
+.frow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
 .flabel{width:64px;font-weight:700;color:var(--ink)}
-.pill{font-family:'Lato',sans-serif;font-size:14px;line-height:1.2;padding:8px 14px;min-height:44px;border:1px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.pill{position:relative;font-family:'Lato',sans-serif;font-size:13px;line-height:1.2;padding:4px 11px;min-height:30px;border:1px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.pill svg{width:16px;height:16px;flex:none}
+.pill::before{content:"";position:absolute;inset:-7px -3px}/* keeps a 44px tap area */
 .pill:hover{background:var(--hl)}
 .pill[aria-pressed="true"]{background:var(--hl)}
 .fnote{margin:0;line-height:1.6;max-width:560px}
