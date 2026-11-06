@@ -27,9 +27,16 @@ title: Writing
       </div>
     </div>
     <div class="gposts">
-      {%- for p in g.posts %}
+      {%- for p in g.posts.slice(0, 8) %}
       <div class="post"><span class="pdate">{{ p.date }}</span><span><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a><span class="psrc">{{ p.src }}</span></span></div>
       {%- endfor %}
+      {%- if g.posts.length > 8 %}
+      <details class="more"><summary>Show the other {{ g.posts.length - 8 }}</summary>
+        {%- for p in g.posts.slice(8) %}
+        <div class="post"><span class="pdate">{{ p.date }}</span><span><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a><span class="psrc">{{ p.src }}</span></span></div>
+        {%- endfor %}
+      </details>
+      {%- endif %}
       {% if g.note %}<div class="gnote">{{ g.note }} {% if not g.slug and not g.posts.length %}<a href="{{ writing.oldBlog }}" target="_blank" rel="noopener">Visit the old blog →</a>{% endif %}</div>{% endif %}
     </div>
   </section>

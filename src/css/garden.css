@@ -160,3 +160,11 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.0
   100%{transform:rotate(0deg)}
 }
 @media (prefers-reduced-motion:reduce){.nav .home:hover svg,.nav .home:focus-visible svg{animation:none}}
+
+/* Long groups: first few posts, the rest tucked in a disclosure. */
+.more{margin-top:4px}
+.more>summary{cursor:pointer;font-family:'Lato',sans-serif;font-size:14px;padding:10px 0;color:var(--ink);list-style:none}
+.more>summary::-webkit-details-marker{display:none}
+.more>summary::before{content:"+ ";font-weight:700}
+.more[open]>summary::before{content:"– "}
+.more>summary:hover{text-decoration:underline;text-decoration-color:var(--hl);text-decoration-thickness:.3em;text-underline-offset:-.1em}

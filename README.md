@@ -49,3 +49,9 @@ The favorites and shelf blurbs in that file are hand-written and never overwritt
 ## Deploying
 
 GitHub Pages source must be set to **GitHub Actions** (Settings > Pages). Every push to `main` builds with Eleventy and publishes `_site`.
+
+## Old blog (Blogspot)
+
+All 299 posts live in `src/_data/oldBlog.tsv`, one per line: `date|title|path|group`. Group codes: B Open Badges, H Hackasaurus,
+W Webmaker, V Hive, R Rockaway, M more from Mozilla, P Parsons and thesis, E everything else.
+To move a post, change its last letter. `src/_data/writing.js` does the rest.
