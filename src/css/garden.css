@@ -8,12 +8,25 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 img,video{max-width:100%;height:auto;display:block;margin:1.5rem 0}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.01em}
 .page{min-height:100vh}
-.garden-home .page{background:
-  linear-gradient(180deg,rgba(251,247,238,0) 45%,#FBF7EE 100%) top/100% 640px no-repeat,
-  radial-gradient(60% 95% at 10% 0%,#C4DCA0 0%,rgba(196,220,160,0) 100%) top/100% 640px no-repeat,
-  radial-gradient(55% 85% at 92% 4%,#F2E6A4 0%,rgba(242,230,164,0) 100%) top/100% 640px no-repeat,
-  radial-gradient(75% 70% at 55% 0%,#DCEBC2 0%,rgba(220,235,194,0) 100%) top/100% 640px no-repeat,
-  var(--cream)}
+.garden-home .page{position:relative;overflow-x:clip}
+.wrap{position:relative;z-index:1}
+/* Home-page aurora: a soft four-corner mesh (butter, lavender, mint, sky) that fades to cream, with slow particles. */
+.aurora{position:absolute;inset:0 0 auto 0;height:760px;overflow:hidden;z-index:0;pointer-events:none;
+  -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%);
+  background:#EDE6D6}
+.aurora i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.95;will-change:transform}
+.aurora .b1{width:62%;height:75%;left:-14%;top:-18%;background:#F3E7A0;animation:drift1 38s ease-in-out infinite alternate}
+.aurora .b2{width:62%;height:80%;left:-12%;top:38%;background:#B391D0;animation:drift2 44s ease-in-out infinite alternate}
+.aurora .b3{width:60%;height:75%;right:-14%;top:-20%;background:#A8DDB0;animation:drift3 41s ease-in-out infinite alternate}
+.aurora .b4{width:62%;height:80%;right:-14%;top:34%;background:#8FB4E0;animation:drift4 47s ease-in-out infinite alternate}
+.aurora .b5{width:44%;height:50%;left:28%;top:22%;background:#9A86BE;opacity:.55;animation:drift5 52s ease-in-out infinite alternate}
+.aurora canvas{position:absolute;inset:0;width:100%;height:100%}
+@keyframes drift1{to{transform:translate(9%,8%) scale(1.08)}}
+@keyframes drift2{to{transform:translate(7%,-9%) scale(1.1)}}
+@keyframes drift3{to{transform:translate(-8%,10%) scale(1.06)}}
+@keyframes drift4{to{transform:translate(-9%,-7%) scale(1.1)}}
+@keyframes drift5{to{transform:translate(-10%,6%) scale(.92)}}
+@media (prefers-reduced-motion:reduce){.aurora i{animation:none}}
 .wrap{max-width:1100px;margin:0 auto;padding:40px 4% 80px}
 .nav{font-family:'Lato',sans-serif;display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:center;font-size:17px}
 .nav .home{background-image:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-8px 0 -8px -6px}
