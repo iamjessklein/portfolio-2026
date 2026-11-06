@@ -11,13 +11,11 @@ bodyClass: garden-home
 
 <section class="filters" aria-label="Filter the garden">
   <div class="frow"><span class="flabel">Stage</span>
-    <button class="pill" data-filter="stage" data-value="all" aria-pressed="true" data-tip="{{ tips.all }}">All</button>
     <button class="pill" data-filter="stage" data-value="seedling" aria-pressed="false" data-tip="{{ tips.seedling }}">{{ stageGlyph("seedling", 20) }}Seedling</button>
     <button class="pill" data-filter="stage" data-value="budding" aria-pressed="false" data-tip="{{ tips.budding }}">{{ stageGlyph("budding", 20) }}Budding</button>
     <button class="pill" data-filter="stage" data-value="evergreen" aria-pressed="false" data-tip="{{ tips.evergreen }}">{{ stageGlyph("evergreen", 20) }}Evergreen</button>
   </div>
   <div class="frow"><span class="flabel">Garden</span>
-    <button class="pill" data-filter="garden" data-value="all" aria-pressed="true" data-tip="{{ tips.all }}">All</button>
     <button class="pill" data-filter="garden" data-value="community" aria-pressed="false" data-tip="{{ tips.community }}">{{ gardenGlyph("community", 20) }}Community</button>
     <button class="pill" data-filter="garden" data-value="balcony" aria-pressed="false" data-tip="{{ tips.balcony }}">{{ gardenGlyph("balcony", 20) }}Balcony</button>
   </div>
@@ -49,21 +47,27 @@ bodyClass: garden-home
 
 <script>
 (() => {
-  const state = { stage: 'all', garden: 'all' };
+  // Nothing selected shows everything. Within a group, chips combine (either one);
+  // across groups they narrow (a stage AND a garden).
+  const state = { stage: new Set(), garden: new Set() };
   const rows = [...document.querySelectorAll('.row')];
   const pills = [...document.querySelectorAll('.pill')];
   const empty = document.querySelector('.empty');
   const apply = () => {
     let shown = 0;
     rows.forEach((r) => {
-      const ok = (state.stage === 'all' || r.dataset.stage === state.stage) &&
-                 (state.garden === 'all' || r.dataset.garden === state.garden);
+      const ok = (!state.stage.size || state.stage.has(r.dataset.stage)) &&
+                 (!state.garden.size || state.garden.has(r.dataset.garden));
       r.hidden = !ok;
       if (ok) shown++;
     });
     empty.hidden = shown !== 0;
-    pills.forEach((p) => p.setAttribute('aria-pressed', String(state[p.dataset.filter] === p.dataset.value)));
+    pills.forEach((p) => p.setAttribute('aria-pressed', String(state[p.dataset.filter].has(p.dataset.value))));
   };
-  pills.forEach((p) => p.addEventListener('click', () => { state[p.dataset.filter] = p.dataset.value; apply(); }));
+  pills.forEach((p) => p.addEventListener('click', () => {
+    const set = state[p.dataset.filter];
+    set.has(p.dataset.value) ? set.delete(p.dataset.value) : set.add(p.dataset.value);
+    apply();
+  }));
 })();
 </script>
