@@ -1,4 +1,5 @@
 export default function (eleventyConfig) {
+  eleventyConfig.addGlobalData("buildStamp", () => Date.now().toString(36)); // cache-busts the stylesheet on every deploy
   // Existing project pages are plain HTML; don't run them through a template engine.
   eleventyConfig.setFreezeReservedData(false);
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
