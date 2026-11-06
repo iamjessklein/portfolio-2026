@@ -143,3 +143,15 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.0
 [data-tip]:hover::after,[data-tip]:focus-visible::after{opacity:1;transform:none}
 @media (hover:none){[data-tip]:not(:focus-visible)::after{display:none}}
 @media (prefers-reduced-motion:reduce){[data-tip]::after{transition:none}}
+
+/* Leaf: sways gently, as if in a light breeze, while hovered or focused. */
+.nav .home svg{display:block;transform-origin:50% 88%;overflow:visible}
+.nav .home:hover svg,.nav .home:focus-visible svg{animation:leafsway 3.2s ease-in-out infinite}
+@keyframes leafsway{
+  0%{transform:rotate(0deg)}
+  25%{transform:rotate(3.5deg) translateX(.4px)}
+  50%{transform:rotate(-1deg)}
+  75%{transform:rotate(-3.5deg) translateX(-.4px)}
+  100%{transform:rotate(0deg)}
+}
+@media (prefers-reduced-motion:reduce){.nav .home:hover svg,.nav .home:focus-visible svg{animation:none}}
