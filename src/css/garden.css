@@ -15,11 +15,11 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.0
   -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%);
   background:#EDE6D6}
 .aurora i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.95;will-change:transform}
-.aurora .b1{width:62%;height:75%;left:-14%;top:-18%;background:#F3E7A0;animation:drift1 38s ease-in-out infinite alternate}
-.aurora .b2{width:62%;height:80%;left:-12%;top:38%;background:#8A4FD0;animation:drift2 44s ease-in-out infinite alternate}
-.aurora .b3{width:60%;height:75%;right:-14%;top:-20%;background:#A8DDB0;animation:drift3 41s ease-in-out infinite alternate}
-.aurora .b4{width:62%;height:80%;right:-14%;top:34%;background:#8FB4E0;animation:drift4 47s ease-in-out infinite alternate}
-.aurora .b5{width:70%;height:62%;left:12%;top:14%;background:#7A3FC4;opacity:.85;animation:drift5 52s ease-in-out infinite alternate}
+.aurora .b1{width:62%;height:75%;left:-14%;top:-18%;background:#FFD9A8;animation:drift1 38s ease-in-out infinite alternate}
+.aurora .b2{width:62%;height:80%;left:-12%;top:38%;background:#C77DBA;animation:drift2 44s ease-in-out infinite alternate}
+.aurora .b3{width:60%;height:75%;right:-14%;top:-20%;background:#F6A99B;animation:drift3 41s ease-in-out infinite alternate}
+.aurora .b4{width:62%;height:80%;right:-14%;top:34%;background:#FFC9A3;animation:drift4 47s ease-in-out infinite alternate}
+.aurora .b5{width:70%;height:62%;left:12%;top:14%;background:#B48BD6;opacity:.8;animation:drift5 52s ease-in-out infinite alternate}
 .aurora canvas{position:absolute;inset:0;width:100%;height:100%}
 @keyframes drift1{to{transform:translate(9%,8%) scale(1.08)}}
 @keyframes drift2{to{transform:translate(7%,-9%) scale(1.1)}}
@@ -199,5 +199,5 @@ main:focus{outline:none}
 }
 @media (prefers-reduced-motion:reduce){.nav .home:hover .seeds i,.nav .home:focus-visible .seeds i{animation:none}}
 
-/* Home hero: intro line in warm white so it pops against the deeper purple. */
-.garden-home .hero .lede{color:#FFF8E8;text-shadow:0 0 10px rgba(60,20,100,.5),0 1px 3px rgba(60,20,100,.35)}
+/* Home hero: intro line stays dark for contrast on the soft gradient. */
+.garden-home .hero .lede{color:var(--ink)}
