@@ -1,0 +1,17 @@
+{% macro stageGlyph(name, size=28) %}
+{%- if name == "seedling" -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 20 C11.3 15 10.8 12 11 9" fill="none" stroke="#3F5A2E" stroke-width="1.6" stroke-linecap="round"/><path d="M11 10 C8 10.4 6.4 8.6 6 6.4 C8.6 6 10.6 7.4 11 10Z" fill="#8FB06A" stroke="#3F5A2E" stroke-width="1.2" stroke-linejoin="round"/></svg>
+{%- elif name == "budding" -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 20 C10.6 15 11.4 11 11 6" fill="none" stroke="#3F5A2E" stroke-width="1.6" stroke-linecap="round"/><path d="M11 12 C8 12.2 5.6 10.6 5.4 8 C8.4 7.8 10.6 9.4 11 12Z" fill="#8FB06A" stroke="#3F5A2E" stroke-width="1.2" stroke-linejoin="round"/><path d="M11 9 C14 9 16 7.4 16.4 5 C13.4 4.8 11.4 6.4 11 9Z" fill="#8FB06A" stroke="#3F5A2E" stroke-width="1.2" stroke-linejoin="round"/><circle cx="11" cy="4.2" r="2" fill="#F2B84B" stroke="#7A5410" stroke-width="1.1"/></svg>
+{%- else -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 20 C11.3 16 10.7 12 11 8" fill="none" stroke="#3F5A2E" stroke-width="1.8" stroke-linecap="round"/><path d="M11 9 C6 9.4 3 7 2.6 3.4 C7 3.2 10.4 5.4 11 9Z" fill="#6E9450" stroke="#3F5A2E" stroke-width="1.2" stroke-linejoin="round"/><path d="M11 9 C16 9.4 19 7 19.4 3.4 C15 3.2 11.6 5.4 11 9Z" fill="#6E9450" stroke="#3F5A2E" stroke-width="1.2" stroke-linejoin="round"/><path d="M11 15 C8 15.2 6 14 5.6 11.8 C8.2 11.6 10.6 12.8 11 15Z" fill="#8FB06A" stroke="#3F5A2E" stroke-width="1.2" stroke-linejoin="round"/></svg>
+{%- endif -%}
+{% endmacro %}
+
+{% macro gardenGlyph(name, size=18) %}
+{%- if name == "community" -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21 V13 M12 21 V8 M19 21 V13" fill="none" stroke="#3F5A2E" stroke-width="1.6" stroke-linecap="round"/><circle cx="5" cy="11" r="2.4" fill="#8FB06A" stroke="#3F5A2E" stroke-width="1.1"/><circle cx="12" cy="6" r="2.4" fill="#8FB06A" stroke="#3F5A2E" stroke-width="1.1"/><circle cx="19" cy="11" r="2.4" fill="#8FB06A" stroke="#3F5A2E" stroke-width="1.1"/></svg>
+{%- else -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14 H17 L15.5 21.5 H8.5 Z" fill="#E8C9A0" stroke="#7A5410" stroke-width="1.2" stroke-linejoin="round"/><path d="M12 14 V7" fill="none" stroke="#3F5A2E" stroke-width="1.6" stroke-linecap="round"/><path d="M12 9.5 C9 9.5 7.5 8 7.2 5.5 C10 5.3 11.8 6.8 12 9.5Z" fill="#8FB06A" stroke="#3F5A2E" stroke-width="1.1"/><path d="M12 11.5 C15 11.5 16.5 10 16.8 7.5 C14 7.3 12.2 8.8 12 11.5Z" fill="#8FB06A" stroke="#3F5A2E" stroke-width="1.1"/></svg>
+{%- endif -%}
+{% endmacro %}
