@@ -11,15 +11,15 @@ bodyClass: garden-home
 
 <section class="filters" aria-label="Filter the garden">
   <div class="frow"><span class="flabel">Stage</span>
-    <button class="pill" data-filter="stage" data-value="all" aria-pressed="true">All</button>
-    <button class="pill" data-filter="stage" data-value="seedling" aria-pressed="false">{{ stageGlyph("seedling", 20) }}Seedling</button>
-    <button class="pill" data-filter="stage" data-value="budding" aria-pressed="false">{{ stageGlyph("budding", 20) }}Budding</button>
-    <button class="pill" data-filter="stage" data-value="evergreen" aria-pressed="false">{{ stageGlyph("evergreen", 20) }}Evergreen</button>
+    <button class="pill" data-filter="stage" data-value="all" aria-pressed="true" data-tip="{{ tips.all }}">All</button>
+    <button class="pill" data-filter="stage" data-value="seedling" aria-pressed="false" data-tip="{{ tips.seedling }}">{{ stageGlyph("seedling", 20) }}Seedling</button>
+    <button class="pill" data-filter="stage" data-value="budding" aria-pressed="false" data-tip="{{ tips.budding }}">{{ stageGlyph("budding", 20) }}Budding</button>
+    <button class="pill" data-filter="stage" data-value="evergreen" aria-pressed="false" data-tip="{{ tips.evergreen }}">{{ stageGlyph("evergreen", 20) }}Evergreen</button>
   </div>
   <div class="frow"><span class="flabel">Garden</span>
-    <button class="pill" data-filter="garden" data-value="all" aria-pressed="true">All</button>
-    <button class="pill" data-filter="garden" data-value="community" aria-pressed="false">{{ gardenGlyph("community", 20) }}Community</button>
-    <button class="pill" data-filter="garden" data-value="balcony" aria-pressed="false">{{ gardenGlyph("balcony", 20) }}Balcony</button>
+    <button class="pill" data-filter="garden" data-value="all" aria-pressed="true" data-tip="{{ tips.all }}">All</button>
+    <button class="pill" data-filter="garden" data-value="community" aria-pressed="false" data-tip="{{ tips.community }}">{{ gardenGlyph("community", 20) }}Community</button>
+    <button class="pill" data-filter="garden" data-value="balcony" aria-pressed="false" data-tip="{{ tips.balcony }}">{{ gardenGlyph("balcony", 20) }}Balcony</button>
   </div>
   <p class="fnote">A community garden is something I made with a team. A balcony garden is something I made on my own.</p>
 </section>
@@ -32,8 +32,8 @@ bodyClass: garden-home
       <a class="rtitle" href="{{ note.url }}">{{ note.data.title }}</a>
       {% if note.data.summary %}<p class="rsum">{{ note.data.summary }}</p>{% endif %}
       <div class="rmeta">
-        <b>{{ note.data.stage | capitalize }}</b>
-        <span class="g">{{ gardenGlyph(note.data.garden, 16) }}{{ note.data.garden | capitalize }} garden</span>
+        <b tabindex="0" data-tip="{{ tips[note.data.stage] }}">{{ note.data.stage | capitalize }}</b>
+        <span class="g" tabindex="0" data-tip="{{ tips[note.data.garden] }}">{{ gardenGlyph(note.data.garden, 16) }}{{ note.data.garden | capitalize }} garden</span>
         {%- for g in writing.groups %}{% if g.slug == note.fileSlug and g.posts.length %}<a href="/writing/#{{ g.slug }}">{{ g.posts.length }} {{ "post" if g.posts.length == 1 else "posts" }} about this</a>{% endif %}{% endfor %}
       </div>
     </div>

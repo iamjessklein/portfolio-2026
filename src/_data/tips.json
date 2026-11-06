@@ -1,0 +1,8 @@
+{
+  "all": "Show every project.",
+  "seedling": "Just planted. An early idea or a work in progress that's still taking shape.",
+  "budding": "Growing. It's real and out in the world, but I'm still tending it.",
+  "evergreen": "Established. It's in good shape and has stood the test of time.",
+  "community": "A community garden is something I made with a team.",
+  "balcony": "A balcony garden is something I made on my own."
+}

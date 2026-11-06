@@ -5,8 +5,8 @@ layout: base.njk
 <article class="note">
   <h1>{{ title }}</h1>
   <p class="status">
-    <span class="stagechip">{{ stageGlyph(stage, 28) }}<b>{{ stage | capitalize }}</b></span>
-    <span class="gardenchip">{{ gardenGlyph(garden, 18) }}{{ garden | capitalize }} garden</span>
+    <span class="stagechip" tabindex="0" data-tip="{{ tips[stage] }}">{{ stageGlyph(stage, 28) }}<b>{{ stage | capitalize }}</b></span>
+    <span class="gardenchip" tabindex="0" data-tip="{{ tips[garden] }}">{{ gardenGlyph(garden, 18) }}{{ garden | capitalize }} garden</span>
     {% for t in topics %}<span class="topic">#{{ t }}</span>{% endfor %}
   </p>
   {% if summary %}<p class="summary">{{ summary }}</p>{% endif %}
