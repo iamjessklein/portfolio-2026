@@ -50,8 +50,13 @@ The favorites and shelf blurbs in that file are hand-written and never overwritt
 
 GitHub Pages source must be set to **GitHub Actions** (Settings > Pages). Every push to `main` builds with Eleventy and publishes `_site`.
 
+## Editing content from a spreadsheet
+
+`bash scripts/make-sheet.sh garden-content.xlsx` builds a spreadsheet of every project (title, stage, garden, summary, topics, order)
+and every post (old blog and Medium) with a project dropdown. Edit it, then `python3 scripts/sheet-to-site.py garden-content.xlsx`
+writes the changes back to `src/notes/*.html`, `src/_data/oldBlog.tsv` and `src/_data/mediumMap.json`. Needs `pip install openpyxl`.
+
 ## Old blog (Blogspot)
 
-All 299 posts live in `src/_data/oldBlog.tsv`, one per line: `date|title|path|group`. Group codes: B Open Badges, H Hackasaurus,
-W Webmaker, V Hive, R Rockaway, M more from Mozilla, P Parsons and thesis, E everything else.
-To move a post, change its last letter. `src/_data/writing.js` does the rest.
+All 299 posts live in `src/_data/oldBlog.tsv`, one per line: `date|title|path|group`, where group is a project page name
+(a file in `src/notes`) or a patch id (see `PATCHES` in `src/_data/writing.js`). `writing.js` builds the Writing page from it.
