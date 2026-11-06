@@ -11,4 +11,13 @@ layout: base.njk
   </p>
   {% if summary %}<p class="summary">{{ summary }}</p>{% endif %}
   <div class="body">{{ content | safe }}</div>
+  {%- for g in writing.groups %}{% if g.slug == page.fileSlug and g.posts.length %}
+  <section class="aboutwriting">
+    <h2>Writing about this</h2>
+    {%- for p in g.posts %}
+    <div class="post"><span class="pdate">{{ p.date }}</span><span><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a><span class="psrc">{{ p.src }}</span></span></div>
+    {%- endfor %}
+    <p class="gsoft"><a href="/writing/#{{ g.slug }}">See everything on the Writing page →</a></p>
+  </section>
+  {% endif %}{% endfor -%}
 </article>

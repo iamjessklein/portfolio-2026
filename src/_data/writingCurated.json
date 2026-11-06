@@ -1,0 +1,159 @@
+{
+ "medium": "https://medium.com/@iamjessklein",
+ "oldBlog": "https://jessicaklein.blogspot.com/",
+ "groups": [
+  {
+   "slug": "open-badges-with-mozilla",
+   "name": "Open Badges with Mozilla",
+   "blurb": "Recognizing learning wherever it happens.",
+   "posts": [
+    {
+     "date": "Oct 2013",
+     "title": "BadgeKit: An Invitation to Innovation",
+     "src": "Old blog",
+     "url": "https://jessicaklein.blogspot.com/2013/10/"
+    }
+   ],
+   "note": "More from the old blog will land here, sorted by its “badges” and “badgekit” labels.",
+   "stage": "evergreen"
+  },
+  {
+   "slug": "mobile-editing-on-wikipedia",
+   "name": "Mobile editing on Wikipedia",
+   "blurb": "Making it easier to edit Wikipedia from a phone.",
+   "posts": [
+    {
+     "date": "Nov 2019",
+     "title": "How we simplified mobile editing on Wikipedia",
+     "src": "Medium",
+     "url": "https://medium.com/@iamjessklein"
+    },
+    {
+     "date": "Jun 2019",
+     "title": "Four principles for staying focused while editing Wikipedia on your phone",
+     "src": "Medium",
+     "url": "https://medium.com/@iamjessklein"
+    }
+   ],
+   "stage": "evergreen"
+  },
+  {
+   "name": "Wikipedia and Wikimedia design",
+   "blurb": "Design work and thinking from inside Wikimedia.",
+   "posts": [
+    {
+     "date": "Sep 2025",
+     "title": "Can you trust Wikipedia in the age of Catch and Kill?",
+     "src": "Medium",
+     "url": "https://medium.com/@iamjessklein"
+    },
+    {
+     "date": "Mar 2021",
+     "title": "People are talking",
+     "src": "Medium · Wikimedia Design",
+     "url": "https://medium.com/@iamjessklein"
+    },
+    {
+     "date": "Mar 2020",
+     "title": "Wikimedia Foundation All Hands: 2020 Sketchbook",
+     "src": "Medium",
+     "url": "https://medium.com/@iamjessklein"
+    }
+   ]
+  },
+  {
+   "name": "Hackjams and civic hacking",
+   "blurb": "Design jams, emergencies, and tools for communities.",
+   "posts": [
+    {
+     "date": "Oct 2013",
+     "title": "Virtual Hackjam: Emergency Hack Lab",
+     "src": "Old blog",
+     "url": "https://jessicaklein.blogspot.com/2013/10/"
+    }
+   ],
+   "note": "More from the old blog will land here, sorted by its “hackjam” and “civic” labels."
+  },
+  {
+   "name": "Around New York",
+   "blurb": "Local life, close to home.",
+   "posts": [
+    {
+     "date": "Nov 2025",
+     "title": "Exploring the Neutrality of Local Election Propositions",
+     "src": "Medium",
+     "url": "https://medium.com/@iamjessklein"
+    },
+    {
+     "date": "Oct 2025",
+     "title": "My Friend, 2-XL",
+     "src": "Medium",
+     "url": "https://medium.com/@iamjessklein"
+    }
+   ]
+  },
+  {
+   "name": "Notes to self",
+   "blurb": "Looser pieces about energy, parties and other things that stuck.",
+   "posts": [
+    {
+     "date": "Mar 2026",
+     "title": "Why your energy is so unpredictable.",
+     "src": "Medium",
+     "url": "https://medium.com/@iamjessklein"
+    },
+    {
+     "date": "Mar 2026",
+     "title": "The Party I’m Still Thinking About",
+     "src": "Medium",
+     "url": "https://medium.com/@iamjessklein"
+    }
+   ]
+  },
+  {
+   "name": "Waiting to be sorted",
+   "blurb": "Nearly all of the old blog’s posts, 2006–2015.",
+   "posts": [],
+   "countLabel": "about 297 posts",
+   "note": "They’ll be sorted by the old blog’s own labels (badges, civic, hackjam, mozilla, badgekit, design values) into the patches above, or into new ones. Until then they live on the old blog."
+  }
+ ],
+ "years": [
+  {
+   "year": 2015,
+   "count": 6
+  },
+  {
+   "year": 2014,
+   "count": 13
+  },
+  {
+   "year": 2013,
+   "count": 13
+  },
+  {
+   "year": 2012,
+   "count": 41
+  },
+  {
+   "year": 2011,
+   "count": 18
+  },
+  {
+   "year": 2010,
+   "count": 33
+  },
+  {
+   "year": 2009,
+   "count": 127
+  },
+  {
+   "year": 2008,
+   "count": 47
+  },
+  {
+   "year": 2006,
+   "count": 1
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+---
+layout: base.njk
+title: Colophon
+---
+{% from "glyphs.njk" import stageGlyph, gardenGlyph %}
+<section class="pagehead">
+  <h1>Colophon</h1>
+  <p class="lede">How this garden is built, what it’s made of, and what the little plants mean.</p>
+</section>
+
+<div class="colo">
+  <section>
+    <h2>Growth stages</h2>
+    <p>Each note says how finished it is. A note can move from one stage to the next as I tend it.</p>
+    <dl class="defs">
+      <dt>{{ stageGlyph("seedling", 28) }}Seedling</dt><dd>A first draft or an early idea. Rough, and likely to change.</dd>
+      <dt>{{ stageGlyph("budding", 28) }}Budding</dt><dd>Growing and taking shape, but not finished.</dd>
+      <dt>{{ stageGlyph("evergreen", 28) }}Evergreen</dt><dd>Tended and trustworthy. I stand behind it.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Two kinds of garden</h2>
+    <dl class="defs">
+      <dt>{{ gardenGlyph("community", 28) }}Community garden</dt><dd>Something I made with a team.</dd>
+      <dt>{{ gardenGlyph("balcony", 28) }}Balcony garden</dt><dd>Something I made on my own.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Type</h2>
+    <p>Headings are set in <a href="https://fonts.google.com/specimen/Fraunces" target="_blank" rel="noopener">Fraunces</a>, text in <a href="https://fonts.google.com/specimen/Newsreader" target="_blank" rel="noopener">Newsreader</a>, and small labels and navigation in <a href="https://fonts.google.com/specimen/Lato" target="_blank" rel="noopener">Lato</a>, all via Google Fonts.</p>
+  </section>
+
+  <section>
+    <h2>Icons and images</h2>
+    <p>The leaf in the corner is by Softscape from <a href="https://thenounproject.com/browse/icons/term/leaf/" target="_blank" rel="noopener" title="leaf Icons">Noun Project</a> (CC BY 3.0). The growth-stage and garden icons are simple SVGs made for this site.</p>
+  </section>
+
+  <section>
+    <h2>Built with</h2>
+    <p>A static site made with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> and published on GitHub Pages. The source is in <a href="https://github.com/iamjessklein/portfolio-2026" target="_blank" rel="noopener">iamjessklein/portfolio-2026</a>.</p>
+  </section>
+
+  <section>
+    <h2>Inspiration</h2>
+    <p>The idea of a garden over a portfolio, the growth stages, and a good part of the look come from <a href="https://maggieappleton.com" target="_blank" rel="noopener">Maggie Appleton’s</a> digital garden. Link styling nods to <a href="https://awmt.org" target="_blank" rel="noopener">awmt.org</a>.</p>
+  </section>
+</div>

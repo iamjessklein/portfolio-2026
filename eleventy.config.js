@@ -6,6 +6,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ ".nojekyll": ".nojekyll" });
 
+  eleventyConfig.addFilter("spineHeight", (title, i) => Math.round(Math.min(290, 150 + title.length * 4.5 + (i % 3) * 10)));
+
   eleventyConfig.addCollection("garden", (api) =>
     api.getFilteredByGlob("src/notes/*.html").sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
   );

@@ -1,0 +1,141 @@
+{
+  "profile": "https://www.goodreads.com/user/show/4164957-jess",
+  "stats": [
+    {
+      "n": "131",
+      "label": "books read"
+    },
+    {
+      "n": "98",
+      "label": "waiting on the shelf"
+    },
+    {
+      "n": "4.14",
+      "label": "average rating"
+    },
+    {
+      "n": "66",
+      "label": "reviews written"
+    }
+  ],
+  "favorites": [
+    "Fantastic Mr. Fox",
+    "Don’t Make Me Think",
+    "Kissing in Manhattan",
+    "84, Charing Cross Road",
+    "Harry Potter and the Prisoner of Azkaban",
+    "Skim",
+    "Outlander",
+    "The Shadow of the Wind",
+    "The Alchemist",
+    "The Man Who Loved Books Too Much",
+    "Mr. Penumbra’s 24-Hour Bookstore"
+  ],
+  "reading": [
+    {
+      "title": "The Bangalore Detectives Club",
+      "author": "Harini Nagendra"
+    },
+    {
+      "title": "Tor.com Publishing Sampler",
+      "author": "Tor Books"
+    },
+    {
+      "title": "Make Time: How to Focus on What Matters Every Day",
+      "author": "Jake Knapp"
+    },
+    {
+      "title": "The Book of Alchemy: A Creative Practice for an Inspired Life",
+      "author": "Suleika Jaouad"
+    }
+  ],
+  "shelves": [
+    {
+      "name": "Library",
+      "count": "131 read",
+      "blurb": "Books I’ve finished. 124 ratings so far, and 66 written reviews."
+    },
+    {
+      "name": "Antilibrary",
+      "count": "98 to read",
+      "blurb": "Books I’m saving up for, and some I may never get to."
+    },
+    {
+      "name": "Did not finish",
+      "count": "1",
+      "blurb": ""
+    }
+  ],
+  "tags": [
+    {
+      "name": "user-experience",
+      "count": 27
+    },
+    {
+      "name": "graphic-novel",
+      "count": 2
+    },
+    {
+      "name": "ya",
+      "count": 2
+    }
+  ],
+  "reviewed": [
+    {
+      "title": "Under Wildwood",
+      "author": "Colin Meloy",
+      "rating": 4,
+      "summary": "I enjoyed the ride that this second installment has taken me on. Of course the narrative did not end neatly, as it’s part of a trilogy. I think that the author broke up the books in a smart way to keep me wanting more. To be…",
+      "url": "https://www.goodreads.com/book/show/10353049"
+    },
+    {
+      "title": "Kissing Kosher",
+      "author": "Jean Meltzer",
+      "rating": 4,
+      "summary": "I read this on a whim and was surprised by how sensitive and creative a romance book could be. This is my second book that I’ve read by this author and I love the way that she incorporates her protagonist’s chronic illnesses into…",
+      "url": "https://www.goodreads.com/book/show/62325757"
+    },
+    {
+      "title": "Adventures from the Land of Stories: The Mother Goose Diaries / Queen Red Riding Hood's Guide to Royalty",
+      "author": "Chris Colfer",
+      "rating": 4,
+      "summary": "This set of epistolary tales from the pens of Red Riding Hood and Mother Goose was an excellent audiobook read dramatically by Chris Colfer. I enjoyed the Red Riding Hood story more than the Mother Goose one. Red incorporated…",
+      "url": "https://www.goodreads.com/book/show/24819480"
+    },
+    {
+      "title": "84, Charing Cross Road",
+      "author": "Helene Hanff",
+      "rating": 5,
+      "summary": "I appropriately found this book in a Little Free Library on the Upper East Side of Manhattan. This unique epistolary was such a page turner that I felt as though I had been on the mail exchange.",
+      "url": "https://www.goodreads.com/book/show/368916"
+    },
+    {
+      "title": "A Place Between",
+      "author": "Tim Probert",
+      "rating": 4,
+      "summary": "As always, Tim Probert produced an amazingly beautiful adventure story for us. Every page was jaw droppingly gorgeous. This installment of the series felt, as the title would suggest, as in between before and after something…",
+      "url": "https://www.goodreads.com/book/show/238178787"
+    },
+    {
+      "title": "Playful: How Play Shifts Our Thinking, Inspires Connection, and Sparks Creativity",
+      "author": "Cas Holman",
+      "rating": 4,
+      "summary": "I enjoyed reading this manifesto of sorts on having a playful mindset. The stories that Holman provides are joyous and invite the reader to figure out what play means on their own terms.",
+      "url": "https://www.goodreads.com/book/show/223853548"
+    },
+    {
+      "title": "The Seven Husbands of Evelyn Hugo",
+      "author": "Taylor Jenkins Reid",
+      "rating": 4,
+      "summary": "Seven husbands is too much. This was a fun read. I consumed the pages as if it were a bag of delicious Doritos - a bit salty, a bit bad for you, but certainly fulfilling.",
+      "url": "https://www.goodreads.com/book/show/32620332"
+    },
+    {
+      "title": "The Shadow of the Wind",
+      "author": "Carlos Ruiz Zafón",
+      "rating": 5,
+      "summary": "This is how books are supposed to be written. It felt like a book I just had to hold in my hands. The plot had so many stories and sub-plots attached to it that it felt like an extremely satisfying and well-written soap opera.…",
+      "url": "https://www.goodreads.com/book/show/1232"
+    }
+  ]
+}

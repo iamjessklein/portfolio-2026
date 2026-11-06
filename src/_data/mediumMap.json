@@ -1,0 +1,9 @@
+{
+  "_help": "Assign Medium posts to garden projects. 'byUrl' maps a post URL to a group name from writingCurated.json (or a project slug). 'byCategory' maps a Medium tag to a group name. Anything unmatched lands in 'New on Medium'.",
+  "byUrl": {},
+  "byCategory": {
+    "wikipedia": "Wikipedia and Wikimedia design",
+    "wikimedia": "Wikipedia and Wikimedia design",
+    "mobile editing": "Mobile editing on Wikipedia"
+  }
+}
