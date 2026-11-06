@@ -1,0 +1,63 @@
+---
+layout: base.njk
+title: Bookshelf
+---
+<section class="pagehead">
+  <h1>Bookshelf</h1>
+  <p class="lede">Everything I’ve been reading, tracked for years on <a href="{{ books.profile }}" target="_blank" rel="noopener">Goodreads</a>. The books I’ve written about grow into notes in the garden. The rest sit on the shelf.</p>
+</section>
+
+<div class="stats">
+  {%- for s in books.stats %}
+  <div class="stat"><div class="sn">{{ s.n }}</div><div class="sl">{{ s.label }}</div></div>
+  {%- endfor %}
+</div>
+
+<section class="block">
+  <h2>Favorites</h2>
+  <p class="sub">The books I’d hand to a stranger.</p>
+  <div class="shelf" role="list">
+    <div class="spines">
+      {%- set colors = ["#FFF1A8", "#DCE8C4", "#F6D9C0", "#D3E6E3", "#E6DDF0", "#F4EDDC"] %}
+      {%- set rots = [-1.2, 0.8, -0.5, 1.4, -0.9, 0.4] %}
+      {%- for t in books.favorites %}
+      <div class="spine" role="listitem" style="height:{{ t | spineHeight(loop.index0) }}px;width:{{ 44 + (loop.index0 % 4) * 6 }}px;background:{{ colors[loop.index0 % 6] }};transform:rotate({{ rots[loop.index0 % 6] }}deg)"><span>{{ t }}</span></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="twocol">
+  <section class="block">
+    <h2>On the desk now</h2>
+    <div class="desk">
+      {%- for r in books.reading %}
+      <div class="dbook">
+        <div class="dt">{{ r.title }}</div>
+        {% if r.author %}<div class="da">{{ r.author }}</div>{% endif %}
+        {% if r.page %}<div class="prog"><div class="bar"><div style="width:{{ r.pct }}%"></div></div><span>p. {{ r.page }} of {{ r.total }}</span></div>{% endif %}
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+  <section class="block">
+    <h2>Shelves</h2>
+    <div class="shelves">
+      {%- for s in books.shelves %}
+      <div><div class="shn">{{ s.name }} <span>· {{ s.count }}</span></div>{% if s.blurb %}<p>{{ s.blurb }}</p>{% endif %}</div>
+      {%- endfor %}
+      <div class="chips">
+        {%- for t in books.tags %}<a class="chip" href="{{ books.profile }}" target="_blank" rel="noopener">#{{ t.name }} · {{ t.count }}</a>{%- endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% if books.reviewed.length %}
+<section class="block">
+  <h2>Books I’ve written about</h2>
+  {%- for b in books.reviewed %}
+  <div class="rev"><div class="glyph"></div><div><a href="{{ b.url }}">{{ b.title }}, {{ b.author }}</a><p>{{ b.summary }}</p></div></div>
+  {%- endfor %}
+</section>
+{% endif %}

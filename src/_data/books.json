@@ -1,0 +1,83 @@
+{
+ "profile": "https://www.goodreads.com/user/show/4164957-jess",
+ "stats": [
+  {
+   "n": "131",
+   "label": "books read"
+  },
+  {
+   "n": "98",
+   "label": "waiting on the shelf"
+  },
+  {
+   "n": "4.14",
+   "label": "average rating"
+  },
+  {
+   "n": "66",
+   "label": "reviews written"
+  }
+ ],
+ "favorites": [
+  "Fantastic Mr. Fox",
+  "Don’t Make Me Think",
+  "Kissing in Manhattan",
+  "84, Charing Cross Road",
+  "Harry Potter and the Prisoner of Azkaban",
+  "Skim",
+  "Outlander",
+  "The Shadow of the Wind",
+  "The Alchemist",
+  "The Man Who Loved Books Too Much",
+  "Mr. Penumbra’s 24-Hour Bookstore"
+ ],
+ "reading": [
+  {
+   "title": "The Bangalore Detectives Club",
+   "author": "Harini Nagendra"
+  },
+  {
+   "title": "Make Time: How to Focus on What Matters Every Day",
+   "author": "Jake Knapp",
+   "page": 76,
+   "total": 287,
+   "pct": 26
+  },
+  {
+   "title": "Tor.com Publishing Sampler",
+   "author": "Tor Books"
+  }
+ ],
+ "shelves": [
+  {
+   "name": "Library",
+   "count": "131 read",
+   "blurb": "Books I’ve finished. 124 ratings so far, and 66 written reviews."
+  },
+  {
+   "name": "Antilibrary",
+   "count": "98 to read",
+   "blurb": "Books I’m saving up for, and some I may never get to."
+  },
+  {
+   "name": "Did not finish",
+   "count": "1",
+   "blurb": ""
+  }
+ ],
+ "tags": [
+  {
+   "name": "user-experience",
+   "count": 27
+  },
+  {
+   "name": "graphic-novel",
+   "count": 2
+  },
+  {
+   "name": "ya",
+   "count": 2
+  }
+ ],
+ "reviewed": []
+}
