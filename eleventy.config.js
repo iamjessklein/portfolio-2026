@@ -4,6 +4,7 @@ export default function (eleventyConfig) {
   eleventyConfig.setFreezeReservedData(false);
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
+  eleventyConfig.addPassthroughCopy({ "src/favicon": "/" });
   eleventyConfig.addPassthroughCopy({ "CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ ".nojekyll": ".nojekyll" });
 
