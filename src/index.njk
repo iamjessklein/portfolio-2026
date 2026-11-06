@@ -11,13 +11,13 @@ bodyClass: garden-home
 
 <section class="filters" aria-label="Filter the garden">
   <div class="frow"><span class="flabel">Stage</span>
-    <button class="pill" data-filter="stage" data-value="seedling" aria-pressed="false" data-tip="{{ tips.seedling }}">{{ stageGlyph("seedling", 20) }}Seedling</button>
-    <button class="pill" data-filter="stage" data-value="budding" aria-pressed="false" data-tip="{{ tips.budding }}">{{ stageGlyph("budding", 20) }}Budding</button>
-    <button class="pill" data-filter="stage" data-value="evergreen" aria-pressed="false" data-tip="{{ tips.evergreen }}">{{ stageGlyph("evergreen", 20) }}Evergreen</button>
+    <button class="pill" data-filter="stage" data-value="seedling" aria-pressed="true" data-tip="{{ tips.seedling }}">{{ stageGlyph("seedling", 20) }}Seedling</button>
+    <button class="pill" data-filter="stage" data-value="budding" aria-pressed="true" data-tip="{{ tips.budding }}">{{ stageGlyph("budding", 20) }}Budding</button>
+    <button class="pill" data-filter="stage" data-value="evergreen" aria-pressed="true" data-tip="{{ tips.evergreen }}">{{ stageGlyph("evergreen", 20) }}Evergreen</button>
   </div>
   <div class="frow"><span class="flabel">Garden</span>
-    <button class="pill" data-filter="garden" data-value="community" aria-pressed="false" data-tip="{{ tips.community }}">{{ gardenGlyph("community", 20) }}Community</button>
-    <button class="pill" data-filter="garden" data-value="balcony" aria-pressed="false" data-tip="{{ tips.balcony }}">{{ gardenGlyph("balcony", 20) }}Balcony</button>
+    <button class="pill" data-filter="garden" data-value="community" aria-pressed="true" data-tip="{{ tips.community }}">{{ gardenGlyph("community", 20) }}Community</button>
+    <button class="pill" data-filter="garden" data-value="balcony" aria-pressed="true" data-tip="{{ tips.balcony }}">{{ gardenGlyph("balcony", 20) }}Balcony</button>
   </div>
   <p class="fnote">A community garden is something I made with a team and a balcony garden is a personal project.</p>
 </section>
@@ -47,17 +47,16 @@ bodyClass: garden-home
 
 <script>
 (() => {
-  // Nothing selected shows everything. Within a group, chips combine (either one);
-  // across groups they narrow (a stage AND a garden).
-  const state = { stage: new Set(), garden: new Set() };
+  // Every chip starts on. A project shows when its stage chip and its garden chip are both on;
+  // turn a chip off to hide that kind.
+  const state = { stage: new Set(['seedling', 'budding', 'evergreen']), garden: new Set(['community', 'balcony']) };
   const rows = [...document.querySelectorAll('.row')];
   const pills = [...document.querySelectorAll('.pill')];
   const empty = document.querySelector('.empty');
   const apply = () => {
     let shown = 0;
     rows.forEach((r) => {
-      const ok = (!state.stage.size || state.stage.has(r.dataset.stage)) &&
-                 (!state.garden.size || state.garden.has(r.dataset.garden));
+      const ok = state.stage.has(r.dataset.stage) && state.garden.has(r.dataset.garden);
       r.hidden = !ok;
       if (ok) shown++;
     });
