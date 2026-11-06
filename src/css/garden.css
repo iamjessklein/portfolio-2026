@@ -179,24 +179,22 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.0
 main:focus{outline:none}
 .shelf:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
-/* Seeds: fuzzy little seeds drift off the leaf while it is hovered or focused. */
+/* Seeds: soft, abstract specks of light drift off the leaf while it is hovered or focused. */
 .nav .home{position:relative}
 .seeds{position:absolute;left:50%;top:38%;width:0;height:0;pointer-events:none}
-.seeds i{position:absolute;left:0;top:0;width:7px;height:7px;border-radius:50%;opacity:0;
-  background:radial-gradient(circle,#fff 0 22%,rgba(255,213,111,.85) 45%,rgba(255,213,111,0) 72%);
-  box-shadow:0 0 6px 2px rgba(255,213,111,.55);filter:blur(.4px)}
-.seeds i::after{content:"";position:absolute;left:3px;top:6px;width:1px;height:9px;background:linear-gradient(rgba(94,85,70,.45),transparent);transform-origin:top}
-.nav .home:hover .seeds i,.nav .home:focus-visible .seeds i{animation:seedfloat 7s ease-in-out infinite}
-.seeds i:nth-child(1){--dx:34px;--dy:-46px;animation-delay:0s}
-.seeds i:nth-child(2){--dx:-22px;--dy:-58px;animation-delay:1.1s;width:5px;height:5px}
-.seeds i:nth-child(3){--dx:52px;--dy:-26px;animation-delay:2.3s}
-.seeds i:nth-child(4){--dx:8px;--dy:-70px;animation-delay:3.4s;width:6px;height:6px}
-.seeds i:nth-child(5){--dx:-40px;--dy:-34px;animation-delay:4.6s;width:5px;height:5px}
-.seeds i:nth-child(6){--dx:64px;--dy:-54px;animation-delay:5.7s;width:6px;height:6px}
+.seeds i{position:absolute;left:0;top:0;width:var(--s,8px);height:var(--s,8px);border-radius:50%;opacity:0;
+  background:radial-gradient(circle,var(--c,rgba(255,213,111,.9)) 0,transparent 70%);filter:blur(1.5px)}
+.nav .home:hover .seeds i,.nav .home:focus-visible .seeds i{animation:seedfloat 8s ease-in-out infinite}
+.seeds i:nth-child(1){--dx:34px;--dy:-46px;--s:12px;animation-delay:0s}
+.seeds i:nth-child(2){--dx:-22px;--dy:-58px;--s:6px;--c:rgba(143,170,110,.85);animation-delay:1.2s}
+.seeds i:nth-child(3){--dx:52px;--dy:-26px;--s:16px;--c:rgba(255,255,255,.95);animation-delay:2.5s}
+.seeds i:nth-child(4){--dx:8px;--dy:-72px;--s:9px;animation-delay:3.7s}
+.seeds i:nth-child(5){--dx:-40px;--dy:-34px;--s:14px;--c:rgba(255,236,170,.95);animation-delay:5s}
+.seeds i:nth-child(6){--dx:66px;--dy:-54px;--s:7px;--c:rgba(143,170,110,.85);animation-delay:6.2s}
 @keyframes seedfloat{
-  0%{opacity:0;transform:translate(0,0) rotate(0deg) scale(.6)}
-  15%{opacity:.95}
-  50%{transform:translate(calc(var(--dx)*.5 + 6px),calc(var(--dy)*.5)) rotate(40deg) scale(1)}
-  100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(110deg) scale(.8)}
+  0%{opacity:0;transform:translate(0,0) scale(.4)}
+  20%{opacity:.9}
+  55%{transform:translate(calc(var(--dx)*.55 + 8px),calc(var(--dy)*.55)) scale(1)}
+  100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.5)}
 }
 @media (prefers-reduced-motion:reduce){.nav .home:hover .seeds i,.nav .home:focus-visible .seeds i{animation:none}}
