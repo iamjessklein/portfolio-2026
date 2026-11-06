@@ -3,7 +3,7 @@ layout: base.njk
 title: Jess Klein
 bodyClass: garden-home
 ---
-{% from "glyphs.njk" import stageGlyph, gardenGlyph %}
+{% from "glyphs.njk" import stageGlyph, gardenGlyph, tendGlyph %}
 <section class="hero">
   <h1>Hi, I'm Jess. I design tools to foster learning, community, and experimentation.</h1>
   <p class="lede">Welcome to the garden. Some things here are finished. Others are still growing.</p>
@@ -31,6 +31,7 @@ bodyClass: garden-home
       {% if note.data.summary %}<p class="rsum">{{ note.data.summary }}</p>{% endif %}
       <div class="rmeta">
         <b tabindex="0" data-tip="{{ tips[note.data.stage] }}">{{ note.data.stage | capitalize }}</b>
+        {%- if note | needsTending %}<span class="tend" tabindex="0" data-tip="{{ tips.tending }}">{{ tendGlyph(16) }}Needs tending</span>{% endif %}
         <span class="g" tabindex="0" data-tip="{{ tips[note.data.garden] }}">{{ gardenGlyph(note.data.garden, 16) }}{{ note.data.garden | capitalize }} garden</span>
         {%- for g in writing.groups %}{% if g.slug == note.fileSlug and g.posts.length %}<a href="/writing/#{{ g.slug }}">{{ g.posts.length }} {{ "post" if g.posts.length == 1 else "posts" }} about this</a>{% endif %}{% endfor %}
       </div>

@@ -38,7 +38,7 @@ function projects() {
     const fm = (readFileSync(new URL(f, dir), "utf8").match(/^---\n([\s\S]*?)\n---/) || [])[1] || "";
     const get = (k) => ((fm.match(new RegExp(`^${k}:\\s*(.*)$`, "m")) || [])[1] || "").trim().replace(/^"|"$/g, "");
     const body = readFileSync(new URL(f, dir), "utf8").replace(/^---\n[\s\S]*?\n---\n?/, "");
-    const filled = !/still to be written/i.test(body) && body.replace(/<[^>]+>/g, "").trim().length >= 100;
+    const filled = !/still to be written|needs tending/i.test(body) && body.replace(/<[^>]+>/g, "").trim().length >= 100;
     out[f.replace(/\.html$/, "")] = { title: get("title"), summary: get("summary"), stage: get("stage"), order: (filled ? 0 : 500) + (+get("order") || 99) };
   }
   return out;

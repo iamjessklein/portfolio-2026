@@ -15,8 +15,9 @@ export default function (eleventyConfig) {
   // A note counts as filled in once it has about a paragraph of text and isn't the "still to be written" stub.
   const hasContent = (item) => {
     const body = readFileSync(item.inputPath, "utf8").replace(/^---\n[\s\S]*?\n---\n?/, "");
-    return !/still to be written/i.test(body) && body.replace(/<[^>]+>/g, "").trim().length >= 100;
+    return !/still to be written|needs tending/i.test(body) && body.replace(/<[^>]+>/g, "").trim().length >= 100;
   };
+  eleventyConfig.addFilter("needsTending", (item) => !hasContent(item));
   eleventyConfig.addCollection("garden", (api) =>
     api.getFilteredByGlob("src/notes/*.html").sort((a, b) =>
       (hasContent(b) - hasContent(a)) || ((a.data.order ?? 99) - (b.data.order ?? 99))
