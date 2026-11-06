@@ -172,3 +172,9 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.0
 /* "Needs tending": a planted project that hasn't been written up yet. */
 .rmeta .tend{display:inline-flex;align-items:center;gap:6px;padding:1px 9px 1px 7px;border:1px dashed #2F5266;border-radius:999px;color:#2F5266;font-weight:700;font-size:12px;background:rgba(207,224,234,.35)}
 .row:has(.tend) .rtitle{opacity:.92}
+
+/* Accessibility */
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink,#1F1B16);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
+.skip:focus{top:12px}
+main:focus{outline:none}
+.shelf:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
