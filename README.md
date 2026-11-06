@@ -45,3 +45,7 @@ Goodreads > My Books > Import and export > Export Library, save the file as
 `src/_data/goodreads_library_export.csv`, then `npm run sync:goodreads` and commit.
 That refreshes the stats, currently reading, shelf counts, tags and the 8 most recent written reviews in `src/_data/books.json`.
 The favorites and shelf blurbs in that file are hand-written and never overwritten.
+
+## Deploying
+
+GitHub Pages source must be set to **GitHub Actions** (Settings > Pages). Every push to `main` builds with Eleventy and publishes `_site`.
