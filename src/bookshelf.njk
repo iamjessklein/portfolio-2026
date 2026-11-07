@@ -22,9 +22,11 @@ title: Bookshelf
       {%- set parts = fav.split("::") %}
       {%- set t = parts[0] %}
       {%- set q = (t + " " + parts[1]) if parts.length > 1 else t %}
+      {%- set direct = parts.length > 1 and parts[1].slice(0, 4) == "http" %}
+      {%- set href = parts[1] if direct else ("https://www.nypl.org/search?q=" + (q | urlencode)) %}
       {%- set n = loop.index0 % 11 %}
       {%- set h = 120 + t.length * 9 + jit[n] %}
-      <div class="spine" role="listitem" style="height:{{ h if h < 420 else 420 }}px;width:{{ wid[n] }}px;--bg:{{ bgs[n] }};--fg:{{ fgs[n] }};--rot:{{ rots[n] }}deg{% if n == 3 or n == 6 %};--gap:-8px{% endif %}"><a href="https://www.nypl.org/search?q={{ q | urlencode }}" target="_blank" rel="noopener"><span>{{ t | replace("’", "'") }}</span><span class="vh"> (search the NYPL catalog, new tab)</span></a></div>
+      <div class="spine" role="listitem" style="height:{{ h if h < 420 else 420 }}px;width:{{ wid[n] }}px;--bg:{{ bgs[n] }};--fg:{{ fgs[n] }};--rot:{{ rots[n] }}deg{% if n == 3 or n == 6 %};--gap:-8px{% endif %}"><a href="{{ href }}" target="_blank" rel="noopener"><span>{{ t | replace("’", "'") }}</span><span class="vh"> (search the NYPL catalog, new tab)</span></a></div>
       {%- endfor %}
     </div>
   </div>
