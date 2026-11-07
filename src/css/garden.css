@@ -249,3 +249,20 @@ main:focus{outline:none}
 .sticky:hover .ext,.sticky:focus-within .ext{opacity:1;transform:translate(2px,-2px)}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (prefers-reduced-motion:reduce){.sticky .ext{transition:none}}
+
+/* Card-catalogue index cards: cream stock, red header rule, blue ruled lines, punch hole, coloured top edge. */
+.stickies{gap:22px 6px;padding:10px 10px 30px}
+.sticky{background:#FBF6E6!important;color:#3A332A!important;clip-path:none!important;border-radius:2px;border:1px solid #D9CFB4;border-top:7px solid var(--edge,#B8431A);padding:16px 30px 40px 20px;margin:0 -8px -18px 0;min-height:170px;z-index:var(--z,1);box-shadow:0 1px 1px rgba(31,27,22,.12),0 6px 14px -8px rgba(31,27,22,.35)}
+.sticky.s0{--edge:#B8431A}.sticky.s1{--edge:#F2A57C}.sticky.s2{--edge:#7FB2E8}.sticky.s3{--edge:#A9C84B}.sticky.s4{--edge:#F2C94C}
+.sticky.s0::before{content:"";position:absolute;top:auto;left:50%;bottom:10px;width:12px;height:12px;border-radius:50%;background:#FBF7EE;box-shadow:inset 0 1px 2px rgba(31,27,22,.35);transform:translateX(-50%)}
+.sticky.s1::after,.sticky.s2::before,.sticky.s3::before,.sticky.s4::before{display:none}
+.sticky:not(.s0)::before{content:"";position:absolute;left:50%;bottom:10px;width:12px;height:12px;border-radius:50%;background:#FBF7EE;box-shadow:inset 0 1px 2px rgba(31,27,22,.35);transform:translateX(-50%);display:block!important;box-shadow:inset 0 1px 2px rgba(31,27,22,.35)}
+.sticky a,.sticky.s0 a{color:#2B241C!important}
+.sticky h3{font-family:'Courier Prime','Courier New',monospace;font-size:16px;font-weight:700;line-height:1.3;padding-bottom:8px;border-bottom:1px solid #D8757A;margin-right:6px}
+.sticky .by{font-family:'Courier Prime','Courier New',monospace;font-size:12.5px;letter-spacing:0;margin:6px 0 4px;opacity:.9}
+.sticky .say{font-family:'Courier Prime','Courier New',monospace;font-size:14px;line-height:26px;margin:0 0 14px;background:repeating-linear-gradient(transparent 0 25px,#BFD4E8 25px 26px);-webkit-line-clamp:4}
+.sticky:nth-child(3n+2) .say{-webkit-line-clamp:3}.sticky:nth-child(3n) .say{-webkit-line-clamp:5}
+.sticky .ext{top:16px;right:20px;bottom:auto;color:#6B5E4C}
+.sticky:hover,.sticky:focus-within{--z:10}
+.sticky:nth-child(odd){--z:2}
+.sticky,.sticky.s1{border-radius:2px!important}
