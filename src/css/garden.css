@@ -247,3 +247,9 @@ main:focus{outline:none}
 .spine::after{display:none}
 .spine span{position:relative;z-index:1;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;padding:22px 0;font-family:'Lato',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;line-height:1}
 @media (prefers-reduced-motion:no-preference){.spine{transition:transform .3s ease}.spine:hover{transform:rotate(calc(var(--rot) * .4)) translateY(-6px)}}
+
+/* Favorites link out to the NYPL catalog. */
+.spine a{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;color:inherit;background-image:none;cursor:pointer}
+.spine a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.spine a:hover span:first-child{text-decoration:underline;text-underline-offset:3px}
+.spine .vh{position:absolute;transform:none;padding:0;writing-mode:horizontal-tb}
