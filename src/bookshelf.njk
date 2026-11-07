@@ -7,12 +7,6 @@ title: Bookshelf
   <p class="lede">Everything I’ve been reading, tracked for years on <a href="{{ books.profile }}" target="_blank" rel="noopener">Goodreads</a>. The books I’ve written about grow into notes in the garden. The rest sit on the shelf.</p>
 </section>
 
-<div class="stats">
-  {%- for s in books.stats %}
-  <div class="stat"><div class="sn">{{ s.n }}</div><div class="sl">{{ s.label }}</div></div>
-  {%- endfor %}
-</div>
-
 <section class="block">
   <h2>Favorites</h2>
   <p class="sub">The books I’d hand to a stranger.</p>
