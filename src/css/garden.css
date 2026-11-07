@@ -258,10 +258,11 @@ main:focus{outline:none}
 /* Home hero: overlapping, translucent geometric shapes in the book palette. */
 .aurora{background:transparent;-webkit-mask-image:none;mask-image:none;height:640px}
 .aurora i{display:none}
-.shapes{position:absolute;left:0;top:0;width:100%;height:600px;overflow:visible}
+.shapes{position:absolute;left:0;top:0;width:100%;height:640px;overflow:visible}
 .shapes path,.shapes circle,.shapes rect{mix-blend-mode:multiply}
 .shapes .ring{mix-blend-mode:normal}
 .shapes .d{transform-box:fill-box;transform-origin:center;animation:shapedrift 46s ease-in-out infinite alternate}
+.shapes path,.shapes circle,.shapes ellipse{mix-blend-mode:multiply}
 .shapes .d2{animation-duration:52s;animation-delay:-8s}.shapes .d3{animation-duration:58s;animation-delay:-20s}.shapes .d4{animation-duration:44s;animation-delay:-14s}
 .shapes .d5{animation-duration:62s;animation-delay:-30s}.shapes .d6{animation-duration:50s;animation-delay:-5s}.shapes .d7{animation-duration:56s;animation-delay:-26s}
 @keyframes shapedrift{from{transform:translate(0,0) rotate(0deg)}to{transform:translate(-22px,16px) rotate(6deg)}}
