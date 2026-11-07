@@ -56,8 +56,14 @@ title: Bookshelf
 {% if books.reviewed.length %}
 <section class="block">
   <h2>Books I’ve written about</h2>
+  <div class="stickies">
   {%- for b in books.reviewed %}
-  <div class="rev"><div class="glyph"></div><div><a href="{{ b.url }}">{{ b.title }}, {{ b.author }}</a><p>{{ b.summary }}</p></div></div>
+  <article class="sticky s{{ loop.index0 % 5 }}">
+    <h3><a href="{{ b.url }}" target="_blank" rel="noopener">{{ b.title | truncate(60) }}</a></h3>
+    <p class="by">{{ b.author }}{% if b.rating %} · <span aria-label="{{ b.rating }} out of 5">{{ "★★★★★".slice(0, b.rating) }}</span>{% endif %}</p>
+    <p class="say">{{ b.summary }}</p>
+  </article>
   {%- endfor %}
+  </div>
 </section>
 {% endif %}

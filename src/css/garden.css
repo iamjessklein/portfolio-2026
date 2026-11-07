@@ -203,3 +203,24 @@ main:focus{outline:none}
 
 /* Home hero: intro line stays dark for contrast on the soft gradient. */
 .garden-home .hero .lede{color:var(--ink)}
+
+/* Bookshelf: reviews as scattered sticky notes. */
+.stickies{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:34px 28px;padding:6px 4px 12px}
+.sticky{position:relative;padding:22px 20px 18px;border-radius:3px;transform:rotate(var(--r,0deg));transition:transform .35s ease,box-shadow .35s ease;box-shadow:0 1px 0 rgba(31,27,22,.06),0 8px 18px -10px rgba(31,27,22,.28)}
+.sticky:hover,.sticky:focus-within{transform:rotate(0deg) translateY(-3px);box-shadow:0 12px 22px -10px rgba(31,27,22,.35)}
+.sticky h3{margin:0;font-size:19px;line-height:1.25}
+.sticky h3 a{background-image:none}
+.sticky h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.sticky .by{margin:4px 0 8px;font-family:'Lato',sans-serif;font-size:12.5px;letter-spacing:.02em;opacity:.85}
+.sticky .say{margin:0;font-family:'Junicode',Georgia,serif;font-size:17px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.sticky:nth-child(5n+1){--r:-1.8deg}.sticky:nth-child(5n+2){--r:1.4deg}.sticky:nth-child(5n+3){--r:-.8deg}.sticky:nth-child(5n+4){--r:2deg}.sticky:nth-child(5n){--r:-1.3deg}
+.sticky.s0{background:#B8431A;color:#FFF3E0}
+.sticky.s0 a{color:#FFF3E0}
+.sticky.s0::before{content:"";position:absolute;top:8px;left:18px;width:9px;height:9px;background:#FFF3E0;border-radius:1px;box-shadow:42px -1px 0 #FFF3E0,86px 1px 0 #FFF3E0}
+.sticky.s1{background:#F8D6BE;color:#5A2A12;border-radius:3px 3px 3px 22px/3px 3px 3px 22px;clip-path:polygon(0 0,100% 0,100% 100%,26px 100%,0 calc(100% - 26px))}
+.sticky.s1::after{content:"";position:absolute;left:0;bottom:0;width:26px;height:26px;background:linear-gradient(45deg,#B8431A 50%,transparent 50%)}
+.sticky.s2{background:#B9D6F6;color:#12304F}
+.sticky.s3{background:#D3E58F;color:#2B3A0E}
+.sticky.s4{background:#FFE9A3;color:#4A3A0A}
+.sticky a{color:inherit}
+@media (prefers-reduced-motion:reduce){.sticky{transition:none}}
