@@ -10,7 +10,17 @@ layout: base.njk
     {% for t in topics %}<span class="topic">#{{ t }}</span>{% endfor %}
   </p>
   {% if summary %}<p class="summary">{{ summary }}</p>{% endif %}
-  <div class="body">{{ content | safe }}</div>
+  {%- if problem or did or changed %}
+  <div class="gist">
+    {%- if problem %}<section class="g1"><h2>The problem</h2><p>{{ problem }}</p></section>{% endif %}
+    {%- if did %}<section class="g2"><h2>What I did</h2><p>{{ did }}</p></section>{% endif %}
+    {%- if changed %}<section class="g3"><h2>What changed</h2><p>{{ changed }}</p></section>{% endif %}
+  </div>
+  {%- endif %}
+  <div class="cols">
+    <nav class="toc" aria-label="On this page" hidden></nav>
+    <div class="main">
+    <div class="body">{{ content | safe }}</div>
   {%- for g in writing.groups %}{% if g.slug == page.fileSlug and g.posts.length %}
   <section class="aboutwriting">
     <h2>Writing about this</h2>
@@ -20,4 +30,37 @@ layout: base.njk
     <p class="gsoft"><a href="/writing/#{{ g.slug }}">See everything on the Writing page →</a></p>
   </section>
   {% endif %}{% endfor -%}
+    </div>
+  </div>
 </article>
+<script>
+(() => {
+  const body = document.querySelector('.note .body'), toc = document.querySelector('.note .toc');
+  if (!body || !toc) return;
+  const hs = [...body.querySelectorAll('h2')].filter(h => h.textContent.trim());
+  if (hs.length < 3) return;
+  const used = new Set();
+  const links = hs.map(h => {
+    let id = h.id || h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
+    while (used.has(id)) id += '-2';
+    used.add(id); h.id = id;
+    const a = document.createElement('a'); a.href = '#' + id; a.textContent = h.textContent.trim();
+    toc.appendChild(a); return a;
+  });
+  const label = document.createElement('div'); label.className = 'toclabel'; label.textContent = 'On this page';
+  toc.prepend(label);
+  toc.hidden = false;
+  document.querySelector('.note .cols').classList.add('hastoc');
+  let cur = -1, tick = false;
+  const mark = () => {
+    tick = false;
+    let n = -1;
+    hs.forEach((h, k) => { if (h.getBoundingClientRect().top < window.innerHeight * 0.35) n = k; });
+    if (n === cur) return;
+    cur = n;
+    links.forEach((l, k) => k === n ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current'));
+  };
+  addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(mark); } }, { passive: true });
+  mark();
+})();
+</script>
