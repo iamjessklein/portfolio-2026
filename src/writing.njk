@@ -5,12 +5,15 @@ title: Writing
 {% from "glyphs.njk" import stageGlyph %}
 <section class="pagehead">
   <h1>Writing</h1>
-  <p class="lede">Most of what I’ve written grew out of something I was making. So it’s sorted by project, not by date. Writing that doesn’t belong to a planted project yet sits in its own patch, waiting to be planted.</p>
+  <p class="lede">Most of what I’ve written grew out of something I was making. So it’s sorted by project to start with, and you can switch to date. Writing that doesn’t belong to a planted project yet sits in its own patch, waiting to be planted.</p>
 </section>
 
-<div class="viewtoggle" role="group" aria-label="Sort writing">
-  <button class="pill" data-view="project" aria-pressed="true">By project</button>
-  <button class="pill" data-view="year" aria-pressed="false">By year</button>
+<div class="sortbar">
+  <label for="sort">Sort by</label>
+  <select id="sort">
+    <option value="project" selected>Project</option>
+    <option value="date">Date</option>
+  </select>
 </div>
 
 <div id="view-project" class="groups">
@@ -43,22 +46,25 @@ title: Writing
 {%- endfor %}
 </div>
 
-<div id="view-year" hidden>
-  <p class="yearnote">Blogspot only, by year. Medium posts sort by project.</p>
-  <ul class="years">
-  {%- for y in writing.years %}
-    <li><a href="{{ writing.oldBlog }}{{ y.year }}/" target="_blank" rel="noopener"><span class="yr">{{ y.year }}</span><span class="yc">{{ y.count }} posts</span></a></li>
-  {%- endfor %}
-  </ul>
+<div id="view-date" class="groups" hidden>
+{%- for y in writing.byYear %}
+  <section class="yeargroup" aria-label="{{ y.year }}">
+    <div class="gtitle"><h2>{{ y.year }}</h2><span class="gcount">{{ y.posts | length }}{{ " post" if (y.posts | length) == 1 else " posts" }}</span></div>
+    <div class="gposts">
+      {%- for p in y.posts %}
+      <div class="post"><span class="pdate">{{ p.date }}</span><span><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a><span class="psrc">{{ p.src }} · {% if p.slug %}<a class="plink" href="/projects/{{ p.slug }}.html">{{ p.project }}</a>{% else %}{{ p.project }}{% endif %}</span></span></div>
+      {%- endfor %}
+    </div>
+  </section>
+{%- endfor %}
 </div>
 
 <script>
 (() => {
-  const btns = [...document.querySelectorAll('.viewtoggle .pill')];
-  const views = { project: document.getElementById('view-project'), year: document.getElementById('view-year') };
-  btns.forEach((b) => b.addEventListener('click', () => {
-    btns.forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
-    Object.entries(views).forEach(([k, el]) => { el.hidden = k !== b.dataset.view; });
-  }));
+  const sel = document.getElementById('sort');
+  const views = { project: document.getElementById('view-project'), date: document.getElementById('view-date') };
+  const show = (v) => { Object.entries(views).forEach(([k, el]) => { el.hidden = k !== v; }); };
+  sel.addEventListener('change', () => { show(sel.value); history.replaceState(null, '', sel.value === 'date' ? '#date' : location.pathname); });
+  if (location.hash === '#date') { sel.value = 'date'; show('date'); }
 })();
 </script>

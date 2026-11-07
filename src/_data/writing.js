@@ -114,6 +114,20 @@ export default function () {
   const rank = (g) => (g.slug && proj[g.slug] ? proj[g.slug].order : 1000);
   const final = groups.filter((g) => g.posts.length || g.slug).sort((a, b) => rank(a) - rank(b));
 
-  const years = Object.entries(yearCounts).sort((a, b) => b[0] - a[0]).map(([year, count]) => ({ year: +year, count }));
-  return { ...curated, groups: final, years };
+  // Every post in one list for the "sort by date" view: newest first, grouped by year, tagged with its project.
+  const stamp = (p) => {
+    if (p.iso) return p.iso;
+    const t = Date.parse(p.date);
+    return Number.isNaN(t) ? "0000-00-00" : new Date(t).toISOString().slice(0, 10);
+  };
+  const flat = final.flatMap((g) => g.posts.map((p) => ({ ...p, key: stamp(p), project: g.name, slug: g.slug || "" })));
+  flat.sort((a, b) => b.key.localeCompare(a.key));
+  const byYear = [];
+  for (const p of flat) {
+    const year = p.key.slice(0, 4) === "0000" ? "Undated" : p.key.slice(0, 4);
+    let y = byYear[byYear.length - 1];
+    if (!y || y.year !== year) { y = { year, posts: [] }; byYear.push(y); }
+    y.posts.push(p);
+  }
+  return { ...curated, groups: final, byYear, total: flat.length };
 }

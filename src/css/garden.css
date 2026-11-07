@@ -309,3 +309,12 @@ main:focus{outline:none}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 .row.rise{animation:rise .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 45ms)}
 @media (prefers-reduced-motion:reduce){.row.rise{animation:none}}
+
+/* writing: sort control */
+.sortbar{margin-top:28px;display:flex;align-items:center;gap:12px;font-family:'Lato',sans-serif;font-size:15px}
+.sortbar label{font-weight:700}
+.sortbar select{font:inherit;color:var(--ink);background:var(--paper,#FBF7EE);border:1.5px solid var(--ink);border-radius:6px;padding:7px 36px 7px 12px;min-height:40px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%231F1B16' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.sortbar select:hover{background-color:var(--hl)}
+.yeargroup .gtitle{display:flex;align-items:baseline;gap:12px}
+.psrc .plink{display:inline;font-size:inherit;color:inherit}
+.groups[hidden]{display:none}
