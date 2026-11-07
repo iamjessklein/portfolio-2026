@@ -206,8 +206,8 @@ main:focus{outline:none}
 
 /* Bookshelf: reviews as scattered sticky notes. */
 .stickies{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:34px 28px;padding:6px 4px 12px}
-.sticky{position:relative;padding:22px 20px 18px;border-radius:3px;transform:rotate(var(--r,0deg));transition:transform .35s ease,box-shadow .35s ease;box-shadow:0 1px 0 rgba(31,27,22,.06),0 8px 18px -10px rgba(31,27,22,.28)}
-.sticky:hover,.sticky:focus-within{transform:rotate(0deg) translateY(-3px);box-shadow:0 12px 22px -10px rgba(31,27,22,.35)}
+.sticky{position:relative;padding:22px 20px 18px;border-radius:3px;transform:translate(var(--dx,0),var(--dy,0)) rotate(var(--r,0deg));cursor:pointer;transition:transform .35s ease,box-shadow .35s ease;box-shadow:0 1px 0 rgba(31,27,22,.06),0 8px 18px -10px rgba(31,27,22,.28)}
+.sticky:hover,.sticky:focus-within{transform:translate(var(--dx,0),calc(var(--dy,0px) - 4px)) rotate(0deg);box-shadow:0 12px 22px -10px rgba(31,27,22,.35)}
 .sticky h3{margin:0;font-size:19px;line-height:1.25}
 .sticky h3 a{background-image:none}
 .sticky h3 a:hover{text-decoration:underline;text-underline-offset:3px}
@@ -224,3 +224,20 @@ main:focus{outline:none}
 .sticky.s4{background:#FFE9A3;color:#4A3A0A}
 .sticky a{color:inherit}
 @media (prefers-reduced-motion:reduce){.sticky{transition:none}}
+
+/* Whole note is the link to the full Goodreads entry. */
+.sticky h3 a::after{content:"";position:absolute;inset:0;z-index:1}
+.sticky h3 a:focus-visible{outline:none}
+.sticky:has(a:focus-visible){outline:2px solid var(--ink);outline-offset:4px}
+/* A looser, hand-placed feel: nudge, tilt and resize each note a little. */
+.sticky:nth-child(7n+1){--dx:0px;--dy:0px;padding-bottom:18px}
+.sticky:nth-child(7n+2){--dx:10px;--dy:22px;padding-bottom:26px}
+.sticky:nth-child(7n+3){--dx:-8px;--dy:8px}
+.sticky:nth-child(7n+4){--dx:6px;--dy:-10px;padding-bottom:30px}
+.sticky:nth-child(7n+5){--dx:-12px;--dy:26px}
+.sticky:nth-child(7n+6){--dx:14px;--dy:2px;padding-bottom:22px}
+.sticky:nth-child(7n){--dx:-4px;--dy:16px}
+.sticky:nth-child(3n+2) .say{-webkit-line-clamp:3}
+.sticky:nth-child(3n) .say{-webkit-line-clamp:5}
+.sticky:nth-child(4n+3){margin-right:10px}
+.sticky:nth-child(4n+2){margin-left:10px}
