@@ -300,3 +300,7 @@ main:focus{outline:none}
 
 /* phones: label on its own line above each row of chips */
 @media (max-width:40rem){.filters{gap:18px}.frow{gap:8px}.flabel{width:100%;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}}
+
+/* hero greeting: gradient text (all stops keep 3:1+ against the cream at this size) */
+.hero h1 .hi{color:#B8467F;background:linear-gradient(95deg,#3F6FD8 0%,#8D5BC0 38%,#CD6DA0 68%,#D9683F 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.08em}
+@media (forced-colors:active){.hero h1 .hi{background:none;-webkit-text-fill-color:currentColor;color:CanvasText}}
