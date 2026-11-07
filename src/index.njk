@@ -3,7 +3,7 @@ layout: base.njk
 title: Jess Klein
 bodyClass: garden-home
 ---
-{% from "glyphs.njk" import stageGlyph, gardenGlyph, tendGlyph %}
+{% from "glyphs.njk" import chipIcon, stageGlyph, gardenGlyph, tendGlyph %}
 <section class="hero">
   <h1>Hi, I'm Jess. I design tools to foster learning, community, and experimentation.</h1>
   <p class="lede">Welcome to the garden. Some things here are finished. Others are still growing.</p>
@@ -11,13 +11,13 @@ bodyClass: garden-home
 
 <section class="filters" aria-label="Filter the garden">
   <div class="frow"><span class="flabel">Stage</span>
-    <button class="pill" data-filter="stage" data-value="seedling" aria-pressed="true" data-tip="{{ tips.seedling }}">{{ stageGlyph("seedling", 20) }}Seedling</button>
-    <button class="pill" data-filter="stage" data-value="budding" aria-pressed="true" data-tip="{{ tips.budding }}">{{ stageGlyph("budding", 20) }}Budding</button>
-    <button class="pill" data-filter="stage" data-value="evergreen" aria-pressed="true" data-tip="{{ tips.evergreen }}">{{ stageGlyph("evergreen", 20) }}Evergreen</button>
+    <button class="pill" data-filter="stage" data-value="seedling" aria-pressed="true" data-tip="{{ tips.seedling }}">{{ chipIcon("seedling", 18) }}Seedling</button>
+    <button class="pill" data-filter="stage" data-value="budding" aria-pressed="true" data-tip="{{ tips.budding }}">{{ chipIcon("budding", 18) }}Budding</button>
+    <button class="pill" data-filter="stage" data-value="evergreen" aria-pressed="true" data-tip="{{ tips.evergreen }}">{{ chipIcon("evergreen", 18) }}Evergreen</button>
   </div>
   <div class="frow"><span class="flabel">Garden</span>
-    <button class="pill" data-filter="garden" data-value="community" aria-pressed="true" data-tip="{{ tips.community }}">{{ gardenGlyph("community", 20) }}Community</button>
-    <button class="pill" data-filter="garden" data-value="balcony" aria-pressed="true" data-tip="{{ tips.balcony }}">{{ gardenGlyph("balcony", 20) }}Balcony</button>
+    <button class="pill" data-filter="garden" data-value="community" aria-pressed="true" data-tip="{{ tips.community }}">{{ chipIcon("community", 18) }}Community</button>
+    <button class="pill" data-filter="garden" data-value="balcony" aria-pressed="true" data-tip="{{ tips.balcony }}">{{ chipIcon("balcony", 18) }}Balcony</button>
   </div>
 </section>
 
