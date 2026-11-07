@@ -49,12 +49,17 @@ bodyClass: garden-home
   const rows = [...document.querySelectorAll('.row')];
   const pills = [...document.querySelectorAll('.pill')];
   const empty = document.querySelector('.empty');
-  const apply = () => {
+  const apply = (animate) => {
     let shown = 0;
+    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
     rows.forEach((r) => {
       const ok = state.stage.has(r.dataset.stage) && state.garden.has(r.dataset.garden);
       r.hidden = !ok;
-      if (ok) shown++;
+      r.classList.remove('rise');
+      if (ok) {
+        if (animate && !calm) { r.style.setProperty('--i', Math.min(shown, 10)); void r.offsetWidth; r.classList.add('rise'); }
+        shown++;
+      }
     });
     empty.hidden = shown !== 0;
     pills.forEach((p) => p.setAttribute('aria-pressed', String(state[p.dataset.filter].has(p.dataset.value))));
@@ -62,7 +67,7 @@ bodyClass: garden-home
   pills.forEach((p) => p.addEventListener('click', () => {
     const set = state[p.dataset.filter];
     set.has(p.dataset.value) ? set.delete(p.dataset.value) : set.add(p.dataset.value);
-    apply();
+    apply(true);
   }));
 })();
 </script>
