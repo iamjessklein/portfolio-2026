@@ -30,7 +30,7 @@ const excerpt = (s, n = 230) => {
 
 const rows = parseCsv(await readFile(CSV, "utf8"));
 const shelf = (n) => rows.filter((r) => r["Exclusive Shelf"] === n);
-const read = shelf("read"), toRead = shelf("to-read"), dnf = shelf("did-not-finish");
+const read = shelf("read"), toRead = shelf("to-read");
 const rated = read.map((r) => +r["My Rating"]).filter((n) => n > 0);
 const reviews = rows.filter((r) => clean(r["My Review"]));
 const avg = (rated.reduce((a, b) => a + b, 0) / rated.length).toFixed(2);
@@ -52,7 +52,6 @@ const blurb = (name) => (books.shelves.find((s) => s.name === name) || {}).blurb
 books.shelves = [
   { name: "Library", count: `${read.length} read`, blurb: `Books I’ve finished. ${rated.length} ratings so far, and ${reviews.length} written reviews.` },
   { name: "Antilibrary", count: `${toRead.length} to read`, blurb: blurb("Antilibrary") },
-  ...(dnf.length ? [{ name: "Did not finish", count: String(dnf.length), blurb: blurb("Did not finish") }] : []),
 ];
 books.tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count }));
 // Recent written reviews, newest first, as short excerpts linking back to Goodreads.
