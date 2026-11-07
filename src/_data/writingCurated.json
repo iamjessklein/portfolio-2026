@@ -10,11 +10,11 @@
     {
      "date": "Oct 2013",
      "title": "BadgeKit: An Invitation to Innovation",
-     "src": "Old blog",
+     "src": "Blogspot",
      "url": "https://jessicaklein.blogspot.com/2013/10/"
     }
    ],
-   "note": "More from the old blog will land here, sorted by its “badges” and “badgekit” labels.",
+   "note": "More from my Blogspot blog will land here, sorted by its “badges” and “badgekit” labels.",
    "stage": "evergreen"
   },
   {
@@ -68,11 +68,11 @@
     {
      "date": "Oct 2013",
      "title": "Virtual Hackjam: Emergency Hack Lab",
-     "src": "Old blog",
+     "src": "Blogspot",
      "url": "https://jessicaklein.blogspot.com/2013/10/"
     }
    ],
-   "note": "More from the old blog will land here, sorted by its “hackjam” and “civic” labels."
+   "note": "More from my Blogspot blog will land here, sorted by its “hackjam” and “civic” labels."
   },
   {
    "name": "Around New York",
@@ -112,10 +112,10 @@
   },
   {
    "name": "Waiting to be sorted",
-   "blurb": "Nearly all of the old blog’s posts, 2006–2015.",
+   "blurb": "Nearly all of my Blogspot posts, 2006–2015.",
    "posts": [],
    "countLabel": "about 297 posts",
-   "note": "They’ll be sorted by the old blog’s own labels (badges, civic, hackjam, mozilla, badgekit, design values) into the patches above, or into new ones. Until then they live on the old blog."
+   "note": "They’ll be sorted by Blogspot’s own labels (badges, civic, hackjam, mozilla, badgekit, design values) into the patches above, or into new ones. Until then they live on the old blog."
   }
  ],
  "years": [

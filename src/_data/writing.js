@@ -48,7 +48,7 @@ export default function () {
   const proj = projects();
   const groups = structuredClone(curated.groups)
     .filter((g) => g.name !== "Waiting to be sorted" && g.name !== "Hackjams and civic hacking");
-  groups.forEach((g) => { g.posts = g.posts.filter((p) => !(p.src === "Old blog" && p.url.endsWith("/"))); });
+  groups.forEach((g) => { g.posts = g.posts.filter((p) => !(p.src === "Blogspot" && p.url.endsWith("/"))); });
   const used = new Set();
 
   // Find or create a group by project slug or patch id.
@@ -106,7 +106,7 @@ export default function () {
   const yearCounts = {};
   for (const r of rows) {
     yearCounts[r.iso.slice(0, 4)] = (yearCounts[r.iso.slice(0, 4)] || 0) + 1;
-    groupFor(r.id).posts.push({ date: label(r.iso), iso: r.iso, title: r.title, src: "Old blog", url: OLD + r.path });
+    groupFor(r.id).posts.push({ date: label(r.iso), iso: r.iso, title: r.title, src: "Blogspot", url: OLD + r.path });
   }
 
   // Newest first inside a group; projects first (by their order on the garden page), then patches.

@@ -37,14 +37,14 @@ title: Writing
         {%- endfor %}
       </details>
       {%- endif %}
-      {% if g.note %}<div class="gnote">{{ g.note }} {% if not g.slug and not g.posts.length %}<a href="{{ writing.oldBlog }}" target="_blank" rel="noopener">Visit the old blog →</a>{% endif %}</div>{% endif %}
+      {% if g.note %}<div class="gnote">{{ g.note }} {% if not g.slug and not g.posts.length %}<a href="{{ writing.oldBlog }}" target="_blank" rel="noopener">Visit Blogspot →</a>{% endif %}</div>{% endif %}
     </div>
   </section>
 {%- endfor %}
 </div>
 
 <div id="view-year" hidden>
-  <p class="yearnote">Old blog only, by year. Medium posts sort by project.</p>
+  <p class="yearnote">Blogspot only, by year. Medium posts sort by project.</p>
   <ul class="years">
   {%- for y in writing.years %}
     <li><a href="{{ writing.oldBlog }}{{ y.year }}/" target="_blank" rel="noopener"><span class="yr">{{ y.year }}</span><span class="yc">{{ y.count }} posts</span></a></li>

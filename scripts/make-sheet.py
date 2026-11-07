@@ -76,7 +76,7 @@ ps = wb.create_sheet('Posts', 2)
 header(ps, ['Date', 'Title', 'Source', 'Project', 'Stage', 'Garden', 'Link'])
 posts.sort(key=lambda p: (p['iso'] or '0000'), reverse=True)
 for p in posts:
-    ps.append([p['d'], p['t'], 'Medium' if p['s'].startswith('Medium') else 'Old blog', p['g'], None, None, p['u']])
+    ps.append([p['d'], p['t'], 'Medium' if p['s'].startswith('Medium') else 'Blogspot', p['g'], None, None, p['u']])
 m = len(posts) + 1
 for r in range(2, m + 1):
     ps.cell(r, 5, f'=IFERROR(INDEX(Projects!$B$2:$B${n},MATCH(D{r},Projects!$A$2:$A${n},0)),"Not planted yet")')
