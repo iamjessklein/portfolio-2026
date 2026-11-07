@@ -58,11 +58,14 @@ title: Bookshelf
   <h2>Books I’ve written about</h2>
   <div class="stickies">
   {%- for b in books.reviewed %}
+  {%- set parts = b.author.split(' ') %}
   <article class="sticky s{{ loop.index0 % 5 }}">
-    <h3><a href="{{ b.url }}" target="_blank" rel="noopener">{{ b.title | truncate(60) }}<span class="vh"> (opens on Goodreads, new tab)</span></a></h3>
-    <p class="by">{{ b.author }}{% if b.rating %} · <span aria-label="{{ b.rating }} out of 5">{{ "★★★★★".slice(0, b.rating) }}</span>{% endif %}</p>
+    <p class="call" aria-hidden="true">{{ b.rating }}<br>{{ parts | last | first }}</p>
+    <p class="au">{{ parts | last }}, {{ parts.slice(0, -1).join(' ') }}<span aria-label="{{ b.rating }} out of 5"> · {{ "★★★★★".slice(0, b.rating) }}</span></p>
+    <h3><a href="{{ b.url }}" target="_blank" rel="noopener">{{ b.title | truncate(70) }}<span class="vh"> (opens on Goodreads, new tab)</span></a></h3>
     <p class="say">{{ b.summary }}</p>
-    <svg class="ext" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    <p class="cat" aria-hidden="true">{{ b.url.split('/') | last }}</p>
+    <svg class="ext" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </article>
   {%- endfor %}
   </div>

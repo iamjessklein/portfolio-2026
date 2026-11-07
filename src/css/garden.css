@@ -204,65 +204,37 @@ main:focus{outline:none}
 /* Home hero: intro line stays dark for contrast on the soft gradient. */
 .garden-home .hero .lede{color:var(--ink)}
 
-/* Bookshelf: reviews as scattered sticky notes. */
-.stickies{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:34px 28px;padding:6px 4px 12px}
-.sticky{position:relative;padding:22px 20px 18px;border-radius:3px;transform:translate(var(--dx,0),var(--dy,0)) rotate(var(--r,0deg));cursor:pointer;transition:transform .35s ease,box-shadow .35s ease;box-shadow:0 1px 0 rgba(31,27,22,.06),0 8px 18px -10px rgba(31,27,22,.28)}
-.sticky:hover,.sticky:focus-within{transform:translate(var(--dx,0),calc(var(--dy,0px) - 4px)) rotate(0deg);box-shadow:0 12px 22px -10px rgba(31,27,22,.35)}
-.sticky h3{margin:0;font-size:19px;line-height:1.25}
-.sticky h3 a{background-image:none}
+/* Bookshelf: reviews as overlapping typewritten library catalogue cards. */
+.stickies{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:10px 0;padding:10px 10px 50px}
+.sticky{--r:0deg;--dx:0px;--dy:0px;position:relative;aspect-ratio:5/3;min-height:196px;margin:0 -10px -14px 0;padding:16px 22px 18px 58px;box-sizing:border-box;overflow:hidden;
+  background:var(--stock,#FDFCF7);color:#2B2620;border:1px solid #E2D9BC;border-radius:2px;
+  font-family:'Special Elite','Courier Prime','Courier New',monospace;
+  box-shadow:inset 0 0 38px var(--age,rgba(190,160,80,.10)),0 1px 1px rgba(31,27,22,.14),0 7px 16px -8px rgba(31,27,22,.4);
+  transform:translate(var(--dx),var(--dy)) rotate(var(--r));transition:transform .35s ease,box-shadow .35s ease;cursor:pointer;z-index:var(--z,1)}
+.sticky.s0,.sticky.s3{--stock:#FDFCF8;--age:rgba(190,160,80,.07)}
+.sticky.s1,.sticky.s4{--stock:#F4ECC9;--age:rgba(180,140,50,.20)}
+.sticky.s2{--stock:#F8F2D9;--age:rgba(180,150,60,.14)}
+.sticky:nth-child(5n+1){--r:-1.6deg;--dy:4px}.sticky:nth-child(5n+2){--r:1.2deg;--dx:6px;--dy:-6px}.sticky:nth-child(5n+3){--r:-.7deg;--dy:10px}.sticky:nth-child(5n+4){--r:1.9deg;--dx:-6px}.sticky:nth-child(5n){--r:-1.1deg;--dy:-4px;--dx:4px}
+.sticky:hover,.sticky:focus-within{--z:10;transform:translate(var(--dx),calc(var(--dy) - 6px)) rotate(0deg);box-shadow:inset 0 0 38px var(--age),0 14px 24px -10px rgba(31,27,22,.5)}
+.sticky:has(a:focus-visible){outline:2px solid var(--ink);outline-offset:4px}
+/* punched hole */
+.sticky::before{content:"";position:absolute;left:50%;bottom:22px;width:16px;height:16px;border-radius:50%;background:#FBF7EE;box-shadow:inset 0 2px 3px rgba(31,27,22,.45);transform:translateX(-50%)}
+/* call number, top left, and catalogue number, bottom left */
+.sticky .call{position:absolute;left:18px;top:14px;font-size:14px;line-height:1.25;margin:0;text-align:left}
+.sticky .cat{position:absolute;left:18px;bottom:22px;font-size:12px;margin:0;opacity:.8}
+/* entry: author, then hanging-indent title, then a short note */
+.sticky .au{margin:0;font-size:14.5px;line-height:1.35}
+.sticky h3{margin:0 0 6px 14px;font-family:inherit;font-size:14.5px;font-weight:400;line-height:1.35;letter-spacing:0;padding:0}
+.sticky h3 a{color:inherit;background-image:none}
 .sticky h3 a:hover{text-decoration:underline;text-underline-offset:3px}
-.sticky .by{margin:4px 0 8px;font-family:'Lato',sans-serif;font-size:12.5px;letter-spacing:.02em;opacity:.85}
-.sticky .say{margin:0;font-family:'Junicode',Georgia,serif;font-size:17px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-.sticky:nth-child(5n+1){--r:-1.8deg}.sticky:nth-child(5n+2){--r:1.4deg}.sticky:nth-child(5n+3){--r:-.8deg}.sticky:nth-child(5n+4){--r:2deg}.sticky:nth-child(5n){--r:-1.3deg}
-.sticky.s0{background:#B8431A;color:#FFF3E0}
-.sticky.s0 a{color:#FFF3E0}
-.sticky.s0::before{content:"";position:absolute;top:8px;left:18px;width:9px;height:9px;background:#FFF3E0;border-radius:1px;box-shadow:42px -1px 0 #FFF3E0,86px 1px 0 #FFF3E0}
-.sticky.s1{background:#F8D6BE;color:#5A2A12;border-radius:3px 3px 3px 22px/3px 3px 3px 22px;clip-path:polygon(0 0,100% 0,100% 100%,26px 100%,0 calc(100% - 26px))}
-.sticky.s1::after{content:"";position:absolute;left:0;bottom:0;width:26px;height:26px;background:linear-gradient(45deg,#B8431A 50%,transparent 50%)}
-.sticky.s2{background:#B9D6F6;color:#12304F}
-.sticky.s3{background:#D3E58F;color:#2B3A0E}
-.sticky.s4{background:#FFE9A3;color:#4A3A0A}
-.sticky a{color:inherit}
-@media (prefers-reduced-motion:reduce){.sticky{transition:none}}
-
-/* Whole note is the link to the full Goodreads entry. */
+.sticky .say{margin:0 0 0 14px;font-family:inherit;font-size:13px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;opacity:.92}
+.sticky:nth-child(3n+2) .say{-webkit-line-clamp:2}
+/* whole card is the link to the full Goodreads entry */
 .sticky h3 a::after{content:"";position:absolute;inset:0;z-index:1}
 .sticky h3 a:focus-visible{outline:none}
-.sticky:has(a:focus-visible){outline:2px solid var(--ink);outline-offset:4px}
-/* A looser, hand-placed feel: nudge, tilt and resize each note a little. */
-.sticky:nth-child(7n+1){--dx:0px;--dy:0px;padding-bottom:18px}
-.sticky:nth-child(7n+2){--dx:10px;--dy:22px;padding-bottom:26px}
-.sticky:nth-child(7n+3){--dx:-8px;--dy:8px}
-.sticky:nth-child(7n+4){--dx:6px;--dy:-10px;padding-bottom:30px}
-.sticky:nth-child(7n+5){--dx:-12px;--dy:26px}
-.sticky:nth-child(7n+6){--dx:14px;--dy:2px;padding-bottom:22px}
-.sticky:nth-child(7n){--dx:-4px;--dy:16px}
-.sticky:nth-child(3n+2) .say{-webkit-line-clamp:3}
-.sticky:nth-child(3n) .say{-webkit-line-clamp:5}
-.sticky:nth-child(4n+3){margin-right:10px}
-.sticky:nth-child(4n+2){margin-left:10px}
-
-/* Arrow: signals the note leads off the site. */
-.sticky{min-height:150px}
-.sticky .say{margin-bottom:26px}
-.sticky .ext{position:absolute;right:14px;bottom:12px;width:24px;height:24px;opacity:.8;transition:transform .25s ease,opacity .25s ease}
+/* arrow: signals the card leads off the site */
+.sticky .ext{position:absolute;right:26px;top:14px;width:22px;height:22px;color:#5C5242;opacity:.8;transition:transform .25s ease,opacity .25s ease}
 .sticky:hover .ext,.sticky:focus-within .ext{opacity:1;transform:translate(2px,-2px)}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (prefers-reduced-motion:reduce){.sticky .ext{transition:none}}
-
-/* Card-catalogue index cards: cream stock, red header rule, blue ruled lines, punch hole, coloured top edge. */
-.stickies{gap:22px 6px;padding:10px 10px 30px}
-.sticky{background:#FBF6E6!important;color:#3A332A!important;clip-path:none!important;border-radius:2px;border:1px solid #D9CFB4;border-top:7px solid var(--edge,#B8431A);padding:16px 30px 40px 20px;margin:0 -8px -18px 0;min-height:170px;z-index:var(--z,1);box-shadow:0 1px 1px rgba(31,27,22,.12),0 6px 14px -8px rgba(31,27,22,.35)}
-.sticky.s0{--edge:#B8431A}.sticky.s1{--edge:#F2A57C}.sticky.s2{--edge:#7FB2E8}.sticky.s3{--edge:#A9C84B}.sticky.s4{--edge:#F2C94C}
-.sticky.s0::before{content:"";position:absolute;top:auto;left:50%;bottom:10px;width:12px;height:12px;border-radius:50%;background:#FBF7EE;box-shadow:inset 0 1px 2px rgba(31,27,22,.35);transform:translateX(-50%)}
-.sticky.s1::after,.sticky.s2::before,.sticky.s3::before,.sticky.s4::before{display:none}
-.sticky:not(.s0)::before{content:"";position:absolute;left:50%;bottom:10px;width:12px;height:12px;border-radius:50%;background:#FBF7EE;box-shadow:inset 0 1px 2px rgba(31,27,22,.35);transform:translateX(-50%);display:block!important;box-shadow:inset 0 1px 2px rgba(31,27,22,.35)}
-.sticky a,.sticky.s0 a{color:#2B241C!important}
-.sticky h3{font-family:'Courier Prime','Courier New',monospace;font-size:16px;font-weight:700;line-height:1.3;padding-bottom:8px;border-bottom:1px solid #D8757A;margin-right:6px}
-.sticky .by{font-family:'Courier Prime','Courier New',monospace;font-size:12.5px;letter-spacing:0;margin:6px 0 4px;opacity:.9}
-.sticky .say{font-family:'Courier Prime','Courier New',monospace;font-size:14px;line-height:26px;margin:0 0 14px;background:repeating-linear-gradient(transparent 0 25px,#BFD4E8 25px 26px);-webkit-line-clamp:4}
-.sticky:nth-child(3n+2) .say{-webkit-line-clamp:3}.sticky:nth-child(3n) .say{-webkit-line-clamp:5}
-.sticky .ext{top:16px;right:20px;bottom:auto;color:#6B5E4C}
-.sticky:hover,.sticky:focus-within{--z:10}
-.sticky:nth-child(odd){--z:2}
-.sticky,.sticky.s1{border-radius:2px!important}
+@media (max-width:40rem){.stickies{grid-template-columns:1fr}.sticky{margin-right:0}}
+@media (prefers-reduced-motion:reduce){.sticky,.sticky .ext{transition:none}}
