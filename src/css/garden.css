@@ -266,3 +266,7 @@ main:focus{outline:none}
 @keyframes shapedrift{from{transform:translate(0,0) rotate(0deg)}to{transform:translate(-22px,16px) rotate(6deg)}}
 @media (prefers-reduced-motion:reduce){.shapes .d{animation:none}}
 @media (max-width:40rem){.shapes{opacity:.55}}
+
+/* Home nav: sits on a soft cream pill so it stays legible over the shapes. */
+.garden-home .nav nav{background:rgba(251,247,238,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:8px 20px;border-radius:999px;box-shadow:0 1px 0 rgba(31,27,22,.08),0 6px 16px -10px rgba(31,27,22,.35);position:relative;z-index:3}
+.garden-home .nav .home{position:relative;z-index:3}
