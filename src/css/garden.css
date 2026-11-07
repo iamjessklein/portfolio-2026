@@ -241,3 +241,11 @@ main:focus{outline:none}
 .sticky:nth-child(3n) .say{-webkit-line-clamp:5}
 .sticky:nth-child(4n+3){margin-right:10px}
 .sticky:nth-child(4n+2){margin-left:10px}
+
+/* Arrow: signals the note leads off the site. */
+.sticky{min-height:150px}
+.sticky .say{margin-bottom:26px}
+.sticky .ext{position:absolute;right:14px;bottom:12px;width:24px;height:24px;opacity:.8;transition:transform .25s ease,opacity .25s ease}
+.sticky:hover .ext,.sticky:focus-within .ext{opacity:1;transform:translate(2px,-2px)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.sticky .ext{transition:none}}
