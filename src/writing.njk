@@ -23,7 +23,7 @@ title: Writing
       <div class="gtext">
         <div class="gtitle"><h2>{{ g.name }}</h2><span class="gcount">{{ g.countLabel or ((g.posts | length) ~ (" post" if (g.posts | length) == 1 else " posts")) }}</span></div>
         <p class="gblurb">{{ g.blurb }}</p>
-        {% if g.slug %}<div class="glink"><a href="/projects/{{ g.slug }}.html">Read the project →</a></div>{% else %}<div class="gsoft">Not planted yet</div>{% endif %}
+        {% if g.slug %}<div class="glink"><a href="/projects/{{ g.slug }}.html">Read about the project →</a></div>{% else %}<div class="gsoft">Not planted yet</div>{% endif %}
       </div>
     </div>
     <div class="gposts">
