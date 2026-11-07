@@ -17,24 +17,17 @@ title: Bookshelf
   <h2>Favorites</h2>
   <p class="sub">The books I’d hand to a stranger.</p>
   <div class="shelf" role="list" tabindex="0" aria-label="Books, scrolls sideways">
+    <svg width="0" height="0" aria-hidden="true" style="position:absolute"><filter id="rough" x="-5%" y="-2%" width="110%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.5"/></filter></svg>
     <div class="spines">
-      {%- set stock = ["#FDFCF8", "#F4ECC9", "#F8F2D9", "#FDFCF8", "#F4ECC9"] %}
-      {%- set edge = ["#B8431A", "#F2A57C", "#7FB2E8", "#A9C84B", "#F2C94C"] %}
-      {%- set hs = [214, 176, 232, 158, 204, 186, 224, 168] %}
-      {%- set ws = [50, 62, 44, 70, 54, 46, 66, 52] %}
-      {%- set total = books.favorites.length %}
-      {%- set flatFrom = total - 3 if total > 7 else total %}
+      {%- set bgs = ["#B8431A", "#3F6FD8", "#F2C94C", "#B52B7E", "#F4ECC9", "#1F1B16", "#7A1F2B", "#8E93C9", "#1F3D2E", "#F2A57C", "#26356B"] %}
+      {%- set fgs = ["#FFF3E0", "#FFF3E0", "#1F1B16", "#FFE7F3", "#1F1B16", "#FFF3E0", "#FFE9E0", "#1F1B16", "#EAF3E4", "#1F1B16", "#FFF3E0"] %}
+      {%- set rots = [-2.5, 0, 1.5, -1, 0, 2, -3, 0, 1, -1.5, 3] %}
+      {%- set jit = [0, 40, 10, 70, 25, 0, 55, 15, 85, 30, 5] %}
+      {%- set wid = [46, 52, 38, 44, 42, 36, 48, 40, 50, 38, 46] %}
       {%- for t in books.favorites %}
-      {%- if loop.index0 < flatFrom %}
-      {%- if loop.index0 == 4 %}
-      <div class="pile">
-        {%- for f in books.favorites.slice(flatFrom) %}
-        <div class="flat f{{ loop.index0 }} k{{ (loop.index0 + 2) % 5 }}" role="listitem" style="--stock:{{ stock[(loop.index0 + 2) % 5] }};--edge:{{ edge[(loop.index0 + 1) % 5] }}"><span>{{ f }}</span></div>
-        {%- endfor %}
-      </div>
-      {%- endif %}
-      <div class="spine t{{ loop.index0 % 5 }}{% if loop.index0 == flatFrom - 1 %} lean{% endif %}" role="listitem" style="height:{{ 224 if (t.length > 14 and hs[loop.index0 % 8] < 224) else hs[loop.index0 % 8] }}px;width:{{ 48 if t.length <= 14 else (64 if t.length <= 26 else 80) }}px;--stock:{{ stock[loop.index0 % 5] }};--edge:{{ edge[(loop.index0 + 2) % 5] }}"><span>{{ t }}</span></div>
-      {%- endif %}
+      {%- set n = loop.index0 % 11 %}
+      {%- set h = 120 + t.length * 9 + jit[n] %}
+      <div class="spine" role="listitem" style="height:{{ h if h < 420 else 420 }}px;width:{{ wid[n] }}px;--bg:{{ bgs[n] }};--fg:{{ fgs[n] }};--rot:{{ rots[n] }}deg{% if n == 3 or n == 6 %};--gap:-8px{% endif %}"><span>{{ t | replace("’", "'") }}</span></div>
       {%- endfor %}
     </div>
   </div>
