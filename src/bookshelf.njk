@@ -18,10 +18,13 @@ title: Bookshelf
       {%- set rots = [-2.5, 0, 1.5, -1, 0, 2, -3, 0, 1, -1.5, 3] %}
       {%- set jit = [0, 40, 10, 70, 25, 0, 55, 15, 85, 30, 5] %}
       {%- set wid = [46, 52, 38, 44, 42, 36, 48, 40, 50, 38, 46] %}
-      {%- for t in books.favorites %}
+      {%- for fav in books.favorites %}
+      {%- set parts = fav.split("::") %}
+      {%- set t = parts[0] %}
+      {%- set q = (t + " " + parts[1]) if parts.length > 1 else t %}
       {%- set n = loop.index0 % 11 %}
       {%- set h = 120 + t.length * 9 + jit[n] %}
-      <div class="spine" role="listitem" style="height:{{ h if h < 420 else 420 }}px;width:{{ wid[n] }}px;--bg:{{ bgs[n] }};--fg:{{ fgs[n] }};--rot:{{ rots[n] }}deg{% if n == 3 or n == 6 %};--gap:-8px{% endif %}"><a href="https://www.nypl.org/search?q={{ t | urlencode }}" target="_blank" rel="noopener"><span>{{ t | replace("’", "'") }}</span><span class="vh"> (search the NYPL catalog, new tab)</span></a></div>
+      <div class="spine" role="listitem" style="height:{{ h if h < 420 else 420 }}px;width:{{ wid[n] }}px;--bg:{{ bgs[n] }};--fg:{{ fgs[n] }};--rot:{{ rots[n] }}deg{% if n == 3 or n == 6 %};--gap:-8px{% endif %}"><a href="https://www.nypl.org/search?q={{ q | urlencode }}" target="_blank" rel="noopener"><span>{{ t | replace("’", "'") }}</span><span class="vh"> (search the NYPL catalog, new tab)</span></a></div>
       {%- endfor %}
     </div>
   </div>
