@@ -350,7 +350,5 @@ video.tall{margin-left:auto;margin-right:auto;width:100%;max-width:320px;max-hei
 @media (max-width:40rem){.figgrid.two{grid-template-columns:repeat(2,1fr);gap:10px}}
 /* birds: equal-height pair, no frame. Widths follow each image's aspect ratio so the heights match. */
 .figgrid.two{display:flex;gap:16px;align-items:flex-start}
-.figgrid.two figure:nth-child(1){flex:0.640 1 0}
-.figgrid.two figure:nth-child(2){flex:0.693 1 0}
 .figgrid.two img{border:0;border-radius:0}
 @media (max-width:40rem){.figgrid.two{gap:10px}}
