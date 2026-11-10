@@ -344,3 +344,7 @@ video.tall{margin-left:auto;margin-right:auto;width:100%;max-width:320px;max-hei
 .figgrid img{width:100%;height:auto;margin:0;border:1.5px solid var(--ink);border-radius:4px;background:#fff}
 .figgrid figcaption{margin-top:8px;font:14px/1.35 'Lato',sans-serif;color:var(--muted)}
 @media (max-width:40rem){.figgrid{grid-template-columns:repeat(2,1fr)}}
+
+/* two images side by side, staying side by side on phones */
+.figgrid.two{grid-template-columns:repeat(2,1fr);align-items:start}
+@media (max-width:40rem){.figgrid.two{grid-template-columns:repeat(2,1fr);gap:10px}}
