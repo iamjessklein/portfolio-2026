@@ -40,11 +40,16 @@ layout: base.njk
   const hs = [...body.querySelectorAll('h2')].filter(h => h.textContent.trim());
   if (hs.length < 3) return;
   const used = new Set();
-  const links = hs.map(h => {
+  const PHASE = /^(explore|define|make|validate|make and validate)$/i;
+  const phaseOf = [];
+  let ph = -1;
+  hs.forEach((h, k) => { if (PHASE.test(h.textContent.trim())) ph = k; phaseOf.push(ph); });
+  const links = hs.map((h, k) => {
     let id = h.id || h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
     while (used.has(id)) id += '-2';
     used.add(id); h.id = id;
     const a = document.createElement('a'); a.href = '#' + id; a.textContent = h.textContent.trim();
+    if (phaseOf[k] === k) a.className = 'tp'; else if (phaseOf[k] >= 0) a.className = 'tc';
     toc.appendChild(a); return a;
   });
   const label = document.createElement('div'); label.className = 'toclabel'; label.textContent = 'On this page';
@@ -58,7 +63,10 @@ layout: base.njk
     hs.forEach((h, k) => { if (h.getBoundingClientRect().top < window.innerHeight * 0.35) n = k; });
     if (n === cur) return;
     cur = n;
-    links.forEach((l, k) => k === n ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current'));
+    links.forEach((l, k) => {
+      k === n ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current');
+      l.classList.toggle('in', n >= 0 && phaseOf[n] === k && k !== n);
+    });
   };
   addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(mark); } }, { passive: true });
   mark();

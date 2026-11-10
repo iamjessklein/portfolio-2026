@@ -294,6 +294,11 @@ main:focus{outline:none}
 .toclabel{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
 .toc a{background-image:none;padding:5px 0;color:var(--muted);text-decoration:none;line-height:1.35}
 .toc a:hover{color:var(--ink);text-decoration:underline}
+.toc a.tp{margin-top:10px;font-weight:800;color:var(--ink);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.toc a.tp:first-of-type{margin-top:0}
+.toc a.tc{margin-left:14px;padding:4px 0 4px 12px;border-left:2px solid #d9d2c2;font-size:14px}
+.toc a.tc[aria-current]{border-left-color:var(--ink)}
+.toc a.tp.in{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--hl)}
 .toc a[aria-current]{color:var(--ink);font-weight:800;background-image:linear-gradient(var(--hl),var(--hl));background-size:100% 7px;background-position:0 92%;background-repeat:no-repeat}
 .body h2{scroll-margin-top:24px}
 @media (max-width:56rem){.cols.hastoc{display:block}.toc{display:none}.gist{grid-template-columns:1fr}.gist section{transform:none}}
