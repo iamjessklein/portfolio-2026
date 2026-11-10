@@ -337,3 +337,10 @@ video.tall{margin-left:auto;margin-right:auto;width:100%;max-width:320px;max-hei
 .prompt .pmain{font-weight:700}
 .prompt .pex{margin:.9rem 0 0;padding-top:.8rem;border-top:1.5px dashed rgba(31,27,22,.4)}
 .prompt .pex span{display:block;font:800 11px/1 'Lato',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+
+/* small images shown as a group: a row of figures that wraps on narrow screens */
+.figgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:1.5rem 0}
+.figgrid figure{margin:0}
+.figgrid img{width:100%;height:auto;margin:0;border:1.5px solid var(--ink);border-radius:4px;background:#fff}
+.figgrid figcaption{margin-top:8px;font:14px/1.35 'Lato',sans-serif;color:var(--muted)}
+@media (max-width:40rem){.figgrid{grid-template-columns:repeat(2,1fr)}}
