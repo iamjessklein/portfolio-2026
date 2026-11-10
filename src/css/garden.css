@@ -321,4 +321,4 @@ main:focus{outline:none}
 .groups[hidden]{display:none}
 
 /* phones: show the right-hand shapes at a smaller scale so the pink circle (and the blue behind it) stay in view */
-@media (max-width:40rem){.shapes{left:auto;right:0;width:1280px;top:150px;transform:scale(.6);transform-origin:top right}}
+@media (max-width:40rem){.shapes{display:none}}
