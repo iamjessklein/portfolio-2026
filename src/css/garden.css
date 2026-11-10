@@ -352,3 +352,5 @@ video.tall{margin-left:auto;margin-right:auto;width:100%;max-width:320px;max-hei
 .figgrid.two{display:flex;gap:16px;align-items:flex-start}
 .figgrid.two img{border:0;border-radius:0}
 @media (max-width:40rem){.figgrid.two{gap:10px}}
+
+.group[hidden]{display:none}
