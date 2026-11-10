@@ -322,3 +322,5 @@ main:focus{outline:none}
 
 /* phones: show the right-hand shapes at a smaller scale so the pink circle (and the blue behind it) stay in view */
 @media (max-width:40rem){.shapes{display:none}}
+/* portrait screen recordings: keep them phone-sized instead of full column width */
+video.tall{width:100%;max-width:320px;max-height:70vh;object-fit:contain;border-radius:12px}
