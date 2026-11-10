@@ -329,3 +329,11 @@ main:focus{outline:none}
 @media (max-width:40rem){.shapes{display:none}}
 /* portrait screen recordings: keep them phone-sized instead of full column width */
 video.tall{margin-left:auto;margin-right:auto;width:100%;max-width:320px;max-height:70vh;object-fit:contain;border-radius:12px}
+
+/* prompt excerpts: set apart from the case-study prose like a card pinned to the page */
+.prompt{position:relative;margin:1.2rem 0 1.6rem;padding:22px 22px 18px;background:#F4ECC9;border:1.5px solid var(--ink);border-radius:6px;box-shadow:4px 4px 0 var(--ink);font-family:'Special Elite','Courier New',monospace;font-size:15px;line-height:1.55}
+.prompt .plabel{position:absolute;top:-11px;left:16px;background:var(--ink);color:#FBF7EE;font:800 11px/1 'Lato',sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:3px}
+.prompt p{margin:0 0 .7rem}
+.prompt .pmain{font-weight:700}
+.prompt .pex{margin:.9rem 0 0;padding-top:.8rem;border-top:1.5px dashed rgba(31,27,22,.4)}
+.prompt .pex span{display:block;font:800 11px/1 'Lato',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
