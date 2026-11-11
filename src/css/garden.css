@@ -354,3 +354,13 @@ video.tall{margin-left:auto;margin-right:auto;width:100%;max-width:320px;max-hei
 @media (max-width:40rem){.figgrid.two{gap:10px}}
 
 .group[hidden]{display:none}
+
+/* hypothesis statements: intervention / action / logic */
+mark.hi{color:inherit;padding:.08em .22em;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hi.i{background:rgba(242,201,76,.6)}
+mark.hi.a{background:rgba(205,109,160,.38)}
+mark.hi.l{background:rgba(142,147,201,.42)}
+.hlegend{display:flex;flex-wrap:wrap;gap:8px 10px;margin:.4rem 0 1.4rem;font:700 12px/1 'Lato',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.hlegend mark.hi{padding:6px 10px}
+p.hyp{line-height:1.9}
+@media (forced-colors:active){mark.hi{background:Mark;color:MarkText}}
