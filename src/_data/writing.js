@@ -109,17 +109,20 @@ export default function () {
     groupFor(r.id).posts.push({ date: label(r.iso), iso: r.iso, title: r.title, src: "Blogspot", url: OLD + r.path });
   }
 
-  // Newest first inside a group; projects first (by their order on the garden page), then patches.
-  for (const g of groups) g.posts.sort((a, b) => (b.iso || "").localeCompare(a.iso || ""));
-  const rank = (g) => (g.slug && proj[g.slug] ? proj[g.slug].order : 1000);
-  const final = groups.filter((g) => g.posts.length || g.slug).sort((a, b) => rank(a) - rank(b));
-
-  // Every post in one list for the "sort by date" view: newest first, grouped by year, tagged with its project.
+  // A sortable date for any post: its exact time if known, else the month it was published.
   const stamp = (p) => {
     if (p.iso) return p.iso;
     const t = Date.parse(p.date);
     return Number.isNaN(t) ? "0000-00-00" : new Date(t).toISOString().slice(0, 10);
   };
+  // Newest first inside a group, and groups newest first: the project with the most recent writing comes first.
+  // Groups with no writing yet go last, in the order of the garden page.
+  for (const g of groups) g.posts.sort((a, b) => stamp(b).localeCompare(stamp(a)));
+  const newest = (g) => (g.posts.length ? stamp(g.posts[0]).slice(0, 10) : "");
+  const rank = (g) => (g.slug && proj[g.slug] ? proj[g.slug].order : 1000);
+  const final = groups.filter((g) => g.posts.length || g.slug).sort((a, b) => newest(b).localeCompare(newest(a)) || rank(a) - rank(b));
+
+  // Every post in one list for the "sort by date" view: newest first, grouped by year, tagged with its project.
   const flat = final.flatMap((g) => g.posts.map((p) => ({ ...p, key: stamp(p), project: g.name, slug: g.slug || "" })));
   flat.sort((a, b) => b.key.localeCompare(a.key));
   const byYear = [];
