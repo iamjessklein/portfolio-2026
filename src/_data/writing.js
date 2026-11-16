@@ -73,7 +73,7 @@ export default function () {
         const a = norm(x.title), b = norm(p.title);
         return a === b || a.startsWith(b) || b.startsWith(a);
       });
-      if (m) { p.url = m.url; used.add(m.url); }
+      if (m) { p.url = m.url; if (m.iso) p.iso = m.iso; if (m.excerpt) p.excerpt = m.excerpt; used.add(m.url); }
     }
   }
 
@@ -81,7 +81,7 @@ export default function () {
   const unsorted = [];
   for (const m of medium.posts) {
     if (used.has(m.url)) continue;
-    const post = { date: m.date, title: m.title, src: "Medium", url: m.url };
+    const post = { date: m.date, iso: m.iso, excerpt: m.excerpt, title: m.title, src: "Medium", url: m.url };
     const id = (map.byTitle || {})[m.title] || map.byUrl[m.url] || (() => { const c = m.categories.find((k) => map.byCategory[k]); return c && map.byCategory[c]; })();
     const target = id && groups.find((g) => g.slug === id || g.name === id || (PATCHES[id] && g.name === PATCHES[id].name));
     if (target) target.posts.unshift(post); else unsorted.push(post);
@@ -129,5 +129,7 @@ export default function () {
     if (!y || y.year !== year) { y = { year, posts: [] }; byYear.push(y); }
     y.posts.push(p);
   }
-  return { ...curated, groups: final, byYear, total: flat.length };
+  // The two newest posts overall, highlighted at the top of the Writing page.
+  const latest = flat.slice(0, 2).map(({ date, title, src, url, project, slug, excerpt }) => ({ date, title, src, url, project, slug, excerpt }));
+  return { ...curated, groups: final, byYear, latest, total: flat.length };
 }

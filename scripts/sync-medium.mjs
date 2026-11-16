@@ -18,6 +18,20 @@ const tag = (block, name) => {
   const m = block.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`));
   return m ? decode(m[1]) : "";
 };
+const text = (html) =>
+  decode(html.replace(/<[^>]+>/g, " ")).replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/\s+/g, " ").trim();
+// A short opening for the homepage: the first paragraphs of the post, skipping Medium's one-line subtitle,
+// until there are about 140 characters; cut at a sentence or word boundary.
+export function excerptOf(html) {
+  const paras = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map((m) => text(m[1])).filter(Boolean);
+  if (paras.length > 1 && paras[0].length < 110 && !/[.!?”"]$/.test(paras[0])) paras.shift();
+  let out = "";
+  for (const p of paras) { out = out ? `${out} ${p}` : p; if (out.length >= 140) break; }
+  if (out.length <= 260) return out;
+  const cut = out.slice(0, 260);
+  const end = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("? "), cut.lastIndexOf("! "));
+  return end > 120 ? cut.slice(0, end + 1) : cut.replace(/\s+\S*$/, "") + "…";
+}
 const monthYear = (d) => d.toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
 
 export function parseFeed(xml) {
@@ -31,6 +45,7 @@ export function parseFeed(xml) {
       iso: isNaN(date) ? "" : date.toISOString(),
       date: isNaN(date) ? "" : monthYear(date),
       categories,
+      excerpt: excerptOf(tag(item, "content:encoded")),
     };
   }).filter((p) => p.title && p.url);
 }
