@@ -102,6 +102,16 @@ h1,h2,h3{font-family:'Junicode',Georgia,serif;font-weight:400;letter-spacing:-.0
 .pdate{font-family:'Lato',sans-serif;color:var(--soft);font-size:15px;padding-top:2px}
 .psrc{font-family:'Lato',sans-serif;display:block;margin-top:4px;font-size:15px;color:var(--soft)}
 .post a{font-size:19px}
+.latest{margin-top:48px;max-width:600px}
+.lhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.latest h2{margin:0;font-family:'Lato',sans-serif;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.lhead a{font-family:'Lato',sans-serif;font-size:14px}
+.latest-post{padding:18px 0 4px}
+.lsnip{margin:0;padding-left:14px;border-left:3px solid var(--hl);font-family:'Junicode',Georgia,serif;font-size:20px;line-height:1.65;color:var(--muted)}
+.lby{margin:10px 0 0 17px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px}
+.lby a{font-family:'Junicode',Georgia,serif;font-size:18px;line-height:1.3}
+.lby .pdate{padding-top:0}
+@media (max-width:40rem){.latest{margin-top:36px}.lsnip{font-size:19px}}
 .gnote{font-family:'Lato',sans-serif;padding:12px 0 0;border-top:1px dashed var(--rule);font-size:14px;color:var(--soft);line-height:1.6}
 .yearnote{font-family:'Lato',sans-serif;margin-top:32px;font-size:14px;color:var(--muted)}
 .years{list-style:none;margin:16px 0 0;padding:0;border-bottom:1px solid var(--ink)}
