@@ -9,19 +9,10 @@ bodyClass: garden-home
   <p class="lede">Welcome to the garden. Some things here are finished. Others are still growing.</p>
 </section>
 
-{%- if writing.latest.length %}
-{%- set p = writing.latest[0] %}
-<section class="latest" aria-labelledby="latest-h">
-  <div class="lhead"><h2 id="latest-h">Latest writing</h2><a href="/writing/">All writing →</a></div>
-  <article class="latest-post">
-    {%- if p.excerpt %}
-    <p class="lsnip">{{ p.excerpt }}</p>
-    {%- endif %}
-    <p class="lby"><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a><span class="pdate">{{ p.date }}</span></p>
-  </article>
-</section>
-{%- endif %}
 
+
+<div class="home-grid">
+<div class="home-main">
 <section class="filters" aria-label="Filter the garden">
   <div class="frow"><span class="flabel">Stage</span>
     <button class="pill" data-filter="stage" data-value="seedling" aria-pressed="true" data-tip="{{ tips.seedling }}">{{ chipIcon("seedling", 18) }}Seedling</button>
@@ -52,6 +43,20 @@ bodyClass: garden-home
 {%- endfor %}
 </ul>
 <p class="empty" hidden>Nothing planted here yet.</p>
+</div>
+{%- if writing.latest.length %}
+{%- set p = writing.latest[0] %}
+<aside class="latest home-side" aria-labelledby="latest-h">
+  <div class="lhead"><h2 id="latest-h">Latest writing</h2><a href="/writing/">All writing →</a></div>
+  <article class="latest-post">
+    {%- if p.excerpt %}
+    <p class="lsnip">{{ p.excerpt }}</p>
+    {%- endif %}
+    <p class="lby"><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a><span class="pdate">{{ p.date }}</span></p>
+  </article>
+</aside>
+{%- endif %}
+</div>
 
 
 <script>
