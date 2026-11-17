@@ -47,12 +47,12 @@ bodyClass: garden-home
 {%- if writing.latest.length %}
 {%- set p = writing.latest[0] %}
 <aside class="latest home-side" aria-labelledby="latest-h">
-  <div class="lhead"><h2 id="latest-h">Latest writing</h2><a href="/writing/">All writing →</a></div>
+  <div class="lhead"><h2 id="latest-h">{{ p.date }}</h2><a href="/writing/">All writing →</a></div>
   <article class="latest-post">
     {%- if p.excerpt %}
     <p class="lsnip">{{ p.excerpt }}</p>
     {%- endif %}
-    <p class="lby"><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a><span class="pdate">{{ p.date }}</span></p>
+    <p class="lby"><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a></p>
   </article>
 </aside>
 {%- endif %}
